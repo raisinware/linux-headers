@@ -1,0 +1,24 @@
+on:
+#  schedule:
+#    - cron: '0 0 * * *'
+  push:
+  pull_request:
+
+jobs:
+  update:
+    name: Update Kernel Headers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Run Update Script"
+        run: ./update_headers.sh
+      - name: Get Version
+        id: version
+        run: echo "version=$(head -n 1 .version)" >> $GITHUB_OUTPUT
+      - name: "Commit Changes"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Kernel Headers to ${{ steps.version.outputs.version }}
+          tagging_message: "v${{ steps.version.outputs.version }}"
+          commit_user_name: raisinware
+          commit_user_email: raisinware@users.noreply.github.com
