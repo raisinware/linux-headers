@@ -1,2 +1,2 @@
 # linux-headers
-raw linux kernel headers
+raw linux kernel userspace headers
