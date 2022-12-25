@@ -15,7 +15,7 @@ on_exit () {
 }
 
 # shellcheck disable=SC3047
-trap on_exit ERR
+trap on_exit ERR || true
 
 # check if we need to update headers
 if grep -q "$VERSION" .version 1>/dev/null 2>&1
