@@ -63,7 +63,7 @@ done
 cd ..
 rm -rf ".kernel_tmp"
 
-# install headers create file listing
+# prepare headers
 cd   .header_tmp
 find . -type d -empty -delete
 ARCHS="$(find . -maxdepth 1 -type d | cut -c3-)"
