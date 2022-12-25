@@ -17,6 +17,13 @@ on_exit () {
 # shellcheck disable=SC3047
 trap on_exit ERR
 
+# check if we need to update headers
+if grep -q "$VERSION" .version 1>/dev/null 2>&1
+then
+	exit 0
+fi
+echo "$VERSION" > .version
+
 # setup directories
 rm -rf .kernel_tmp .header_tmp arch include
 mkdir  .kernel_tmp .header_tmp arch include
