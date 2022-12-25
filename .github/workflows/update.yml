@@ -13,6 +13,7 @@ jobs:
         run: ./update_headers.sh
       - name: "Commit Changes"
         run: |
-          git add .
-          git commit -m 'Update Kernel Headers to $(cat .version)'
+          git config --global user.name 'raisinware'
+          git config --global user.email 'raisinware@users.noreply.github.com'
+          git commit -am "Update Kernel Headers to $(cat .version)"
           git push
