@@ -16,5 +16,5 @@ jobs:
           git add .
           git config --global user.name 'raisinware'
           git config --global user.email 'raisinware@users.noreply.github.com'
-          git commit -am "Update Kernel Headers to $(cat .version)"
-          git push
+          git commit -am "Update Kernel Headers to $(cat .version)" || true
+          git push || true
