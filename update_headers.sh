@@ -29,11 +29,12 @@ on_exit () {
 }
 
 # shellcheck disable=SC3047
-trap on_exit ERR || true
+trap on_exit ERR 2>/dev/null || true
 
 # check if we need to update headers
 if grep -q "$VERSION" .version 1>/dev/null 2>&1
 then
+	echo "Kernel Headers already up to date."
 	exit 0
 fi
 echo "$VERSION" > .version
@@ -73,7 +74,7 @@ do
 	mkdir "../arch/$arch"
 	cd    "$arch/include"
 	mv    asm/ "../../../arch/$arch"
-	cp    -rl ./*/ "../../../include" || true
+	cp    -rl ./*/ "../../../include" 2>/dev/null || true
 	cd    "../.."
 	rm    -rf "$arch/include"
 done
