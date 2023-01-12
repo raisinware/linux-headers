@@ -20,3 +20,5 @@ jobs:
         with:
           commit_message: Update Kernel Headers to ${{ steps.version.outputs.version }}
           tagging_message: "v${{ steps.version.outputs.version }}"
+          commit_user_name: raisinware
+          commit_user_email: raisinware@users.noreply.github.com
