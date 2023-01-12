@@ -1,21 +1,31 @@
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * *'
   push:
   pull_request:
 
 jobs:
   update:
+    name: Update Kernel Headers
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: "Update Kernel Headers"
+      - name: "Run Update Script"
         run: ./update_headers.sh
+      - name: Get Version
+        id: version
+        uses: andstor/file-reader-action@v1
+        with:
+          path: ".version"
       - name: "Commit Changes"
-        run: |
-          git add .
-          git config --global user.name 'raisinware'
-          git config --global user.email 'raisinware@users.noreply.github.com'
-          git commit -am "Update Kernel Headers to $(cat .version)" || true
-          git tag $(cat .version) || true
-          git push --tags || true
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Kernel Headers to ${ steps.version.outputs.contents }
+          tagging_message: "v${ steps.version.outputs.contents }"
+#        run: |
+#          git add .
+#          git config --global user.name 'raisinware'
+#          git config --global user.email 'raisinware@users.noreply.github.com'
+#          git commit -am "Update Kernel Headers to $(cat .version)" || true
+#          git tag $(cat .version) || true
+#          git push --tags || true
