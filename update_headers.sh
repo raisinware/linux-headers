@@ -18,7 +18,7 @@ set -e
 
 NAME="linux"
 #VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'mainline:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
-VERSION="2.3.15"
+VERSION="2.3.16"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
 #URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
@@ -69,7 +69,7 @@ do
 	if [ "$arch" = "powerpc" ]
 	then mv "include/asm-ppc" "include/asm-powerpc"
 	fi
-	cp    -rv "include/asm-$arch" "include/asm-generic" "include/linux" "include/net" "include/scsi" "include/video" "../.header_tmp/$arch/include"
+	cp    -rv "include/asm-$arch" "include/asm-generic" "include/linux" "include/net" "include/scsi" "include/video" "include/math-emu" "../.header_tmp/$arch/include"
 	mv    "../.header_tmp/$arch/include/asm-$arch" "../.header_tmp/$arch/include/asm"
 done
 
