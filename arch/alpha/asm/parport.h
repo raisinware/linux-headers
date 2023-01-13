@@ -1,13 +1,13 @@
 /*
- * parport.h: ia32-specific parport initialisation
+ * parport.h: platform-specific PC-style parport initialisation
  *
  * Copyright (C) 1999  Tim Waugh <tim@cyberelk.demon.co.uk>
  *
  * This file should only be included by drivers/parport/parport_pc.c.
  */
 
-#ifndef _ASM_I386_PARPORT_H
-#define _ASM_I386_PARPORT_H 1
+#ifndef _ASM_AXP_PARPORT_H
+#define _ASM_AXP_PARPORT_H 1
 
 #include <linux/config.h>
 
@@ -56,4 +56,4 @@ parport_pc_init(int *io, int *io_hi, int *irq, int *dma)
         return count;
 }
 
-#endif /* !(_ASM_I386_PARPORT_H) */
+#endif /* !(_ASM_AXP_PARPORT_H) */
