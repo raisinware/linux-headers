@@ -14,3 +14,17 @@ Install
 =======
 There are 2 methods for easily installing the kernel headers.
 
+meson
+^^^^^
+
+::
+
+    meson setup build [-Dprefix=...] [-Dincludedir=...] [-Darch=...]
+    [DESTDIR=...] meson install -C build
+
+GNU Make
+^^^^^^^^
+
+::
+
+    [PREFIX=...] make -n ARCH="..." [DESTDIR="/home/raisin/Documents/test"] install
