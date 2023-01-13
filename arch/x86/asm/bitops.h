@@ -1,13 +1,13 @@
-#ifndef _ASM_BITOPS_H
-#define _ASM_BITOPS_H
+#ifndef _I386_BITOPS_H
+#define _I386_BITOPS_H
+
 /*
  * Copyright 1992, Linus Torvalds.
  */
 
-#ifdef i386
 /*
  * These have to be done with inline assembly: that way the bit-setting
- * is guaranteed to be atomic. All bitoperations return 0 if the bit
+ * is guaranteed to be atomic. All bit operations return 0 if the bit
  * was cleared before the operation and != 0 if it was not.
  *
  * bit 0 is the LSB of addr; bit 32 is the LSB of (addr+1).
@@ -63,55 +63,4 @@ extern __inline__ int test_bit(int nr, void * addr)
 	return oldbit;
 }
 
-#else
-/*
- * For the benefit of those who are trying to port Linux to another
- * architecture, here are some C-language equivalents.  You should
- * recode these in the native assmebly language, if at all possible.
- * To guarantee atomicity, these routines call cli() and sti() to
- * disable interrupts while they operate.  (You have to provide inline
- * routines to cli() and sti().)
- *
- * Also note, these routines assume that you have 32 bit integers.
- * You will have to change this if you are trying to port Linux to the
- * Alpha architecture or to a Cray.  :-)
- * 
- * C language equivalents written by Theodore Ts'o, 9/26/92
- */
-
-extern __inline__ int set_bit(int nr,int * addr)
-{
-	int	mask, retval;
-
-	addr += nr >> 5;
-	mask = 1 << (nr & 0x1f);
-	cli();
-	retval = (mask & *addr) != 0;
-	*addr |= mask;
-	sti();
-	return retval;
-}
-
-extern __inline__ int clear_bit(int nr, int * addr)
-{
-	int	mask, retval;
-
-	addr += nr >> 5;
-	mask = 1 << (nr & 0x1f);
-	cli();
-	retval = (mask & *addr) != 0;
-	*addr &= ~mask;
-	sti();
-	return retval;
-}
-
-extern __inline__ int test_bit(int nr, int * addr)
-{
-	int	mask;
-
-	addr += nr >> 5;
-	mask = 1 << (nr & 0x1f);
-	return ((mask & *addr) != 0);
-}
-#endif	/* i386 */
-#endif /* _ASM_BITOPS_H */
+#endif /* _I386_BITOPS_H */
