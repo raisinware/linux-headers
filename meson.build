@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: 0BSD
-# Copyright (C) 2022 by raisinware
+# Copyright (C) 2022-2023 by raisinware
 #
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted.
@@ -23,7 +23,10 @@ message('Kernel Headers Version: ' + version)
 
 include_dir = get_option('includedir')
 
-install_subdir('include/', install_dir: include_dir, strip_directory: true)
+install_subdir('include/',
+               install_dir: include_dir,
+			   strip_directory: true,
+			   install_tag: 'devel')
 
 selected_arch = get_option('arch')
 target_arch = build_machine.cpu_family()
@@ -53,5 +56,8 @@ endif
 message('Installing kernel headers for: ' + selected_arch)
 if (selected_arch != 'generic')
 	arch_dir = join_paths('arch', selected_arch)
-	install_subdir(arch_dir, install_dir: include_dir, strip_directory: true)
+	install_subdir(arch_dir,
+	               install_dir: include_dir,
+				   strip_directory: true,
+				   install_tag: 'devel')
 endif
