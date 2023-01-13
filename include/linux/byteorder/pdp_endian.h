@@ -1,23 +1,30 @@
-#ifndef _LINUX_BYTEORDER_VAX_ENDIAN_H
-#define _LINUX_BYTEORDER_VAX_ENDIAN_H
+#ifndef _LINUX_BYTEORDER_PDP_ENDIAN_H
+#define _LINUX_BYTEORDER_PDP_ENDIAN_H
 
 /*
- * Could have been named NUXI-endian
+ * Could have been named NUXI-endian, but we use the same name as in glibc.
+ * hopefully only the PDP and its evolutions (old VAXen in compatibility mode)
+ * should ever use this braindead byteorder.
  * This file *should* work, but has not been tested.
- * It's the beginning of what vaxlinux implementers will have to do.
- * I just hope we won't have to write standardized cpu_to_ve32() and suches!
- * little endian is 1234; bigendian is 4321; vaxendian is 3412
+ *
+ * little-endian is 1234; big-endian is 4321; nuxi/pdp-endian is 3412
+ *
+ * I thought vaxen were NUXI-endian, but was told they were correct-endian
+ * (little-endian), though indeed there existed NUXI-endian machines
+ * (DEC PDP-11 and old VAXen in compatibility mode).
+ * This makes this file a bit useless, but as a proof-of-concept.
  *
  * But what does a __u64 look like: is it 34127856 or 78563412 ???
  * I don't dare imagine! Hence, no 64-bit byteorder support yet.
+ * Hopefully, there 64-bit pdp-endian support shouldn't ever be required.
  *
  */
 
-#ifndef __VAX_ENDIAN
-#define __VAX_ENDIAN 3412
+#ifndef __PDP_ENDIAN
+#define __PDP_ENDIAN 3412
 #endif
-#ifndef __VAX_ENDIAN_BITFIELD
-#define __VAX_ENDIAN_BITFIELD
+#ifndef __PDP_ENDIAN_BITFIELD
+#define __PDP_ENDIAN_BITFIELD
 #endif
 
 #include <linux/byteorder/swab.h>
@@ -66,4 +73,4 @@
 
 #include <linux/byteorder/generic.h>
 
-#endif /* _LINUX_BYTEORDER_VAX_ENDIAN_H */
+#endif /* _LINUX_BYTEORDER_PDP_ENDIAN_H */
