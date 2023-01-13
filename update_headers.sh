@@ -18,7 +18,7 @@ set -e
 
 NAME="linux"
 #VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'mainline:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
-VERSION="2.1.79"
+VERSION="2.1.80"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
 #URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
@@ -53,8 +53,9 @@ tar -xf  "$NAME-$VERSION.tar.xz" --strip-components 1 --exclude-vcs
 rm       "$NAME-$VERSION.tar.xz"
 
 # install all available headers
-#ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
-ARCHS="x86 mips alpha m68k sparc sparc64 powerpc"
+mv ./arch/i386 ./arch/x86
+mv ./arch/ppc ./arch/powerpc
+ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
 for arch in $ARCHS
 do
 	#mkdir "../.header_tmp/$arch"
