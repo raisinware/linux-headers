@@ -18,7 +18,7 @@ set -e
 
 NAME="linux"
 #VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'mainline:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
-VERSION="1.3.44"
+VERSION="1.3.45"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
 #URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
@@ -54,7 +54,7 @@ rm       "$NAME-$VERSION.tar.xz"
 
 # install all available headers
 #ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
-ARCHS="x86 mips alpha m68k sparc"
+ARCHS="x86 mips alpha m68k sparc powerpc"
 for arch in $ARCHS
 do
 	#mkdir "../.header_tmp/$arch"
@@ -64,6 +64,9 @@ do
 	#make  headers_install ARCH="$arch" INSTALL_HDR_PATH="../.header_tmp/$arch" || true
 	if [ "$arch" = "x86" ]
 	then mv "include/asm-i386" "include/asm-x86"
+	fi
+	if [ "$arch" = "powerpc" ]
+	then mv "include/asm-ppc" "include/asm-powerpc"
 	fi
 	cp    -rv "include/asm-$arch" "include/asm-generic" "include/linux" "include/net" "../.header_tmp/$arch/include"
 	mv    "../.header_tmp/$arch/include/asm-$arch" "../.header_tmp/$arch/include/asm"
