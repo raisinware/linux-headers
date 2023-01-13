@@ -1,6 +1,7 @@
 #ifndef _M68K_SEMAPHORE_H
 #define _M68K_SEMAPHORE_H
 
+#include <linux/config.h>
 #include <linux/linkage.h>
 
 #include <asm/system.h>

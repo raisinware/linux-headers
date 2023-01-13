@@ -5,6 +5,7 @@
 #define __ASM_ARM_SEMAPHORE_H
 
 #include <linux/linkage.h>
+#include <asm/system.h>
 #include <asm/atomic.h>
 
 struct semaphore {

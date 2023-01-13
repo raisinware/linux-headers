@@ -10,7 +10,7 @@
 
 #ifdef __KERNEL__
 
-/* forward-declare task_struct */
+/* forward-decare task_struct */
 struct task_struct;
 
 /*
