@@ -18,11 +18,11 @@ set -e
 
 NAME="linux"
 #VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'mainline:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
-VERSION="1.0"
+VERSION="1.1.13"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
 #URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
-URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.0/$NAME-$VERSION.tar.xz"
+URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.1/$NAME-$VERSION.tar.xz"
 
 # shellcheck disable=SC2317
 on_exit () {
