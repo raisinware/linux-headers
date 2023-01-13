@@ -5,5 +5,5 @@
  */
 
 #ifdef __need_oldlatches
-#error "Old latches not present in this (a5k) machine"
+#error "Old latches not present in this (rpc) machine"
 #endif

@@ -5,7 +5,6 @@
  */
 
 #define HAVE_MAP_VID_MEM
-#define SAFE_ADDR 0x00000000	/* ROM */
 
 unsigned long map_screen_mem(unsigned long log_start, unsigned long kmem, int update)
 {
@@ -28,8 +27,8 @@ unsigned long map_screen_mem(unsigned long log_start, unsigned long kmem, int up
 
 		memzero ((void *)pgtable, 4096);
 		
-		pgd_val(pgd[-2]) = virt_to_phys(pgtable) | PMD_TYPE_TABLE | PMD_DOMAIN(DOMAIN_KERNEL);
-		pgd_val(pgd[-1]) = virt_to_phys(pgtable + PTRS_PER_PTE*4) | PMD_TYPE_TABLE | PMD_DOMAIN(DOMAIN_KERNEL);
+		pgd_val(pgd[-2]) = __virt_to_phys(pgtable) | PMD_TYPE_TABLE | PMD_DOMAIN(DOMAIN_KERNEL);
+		pgd_val(pgd[-1]) = __virt_to_phys(pgtable + PTRS_PER_PTE*4) | PMD_TYPE_TABLE | PMD_DOMAIN(DOMAIN_KERNEL);
 		p = (unsigned long *)pgtable;
 
 		i = PTRS_PER_PTE * 2 - ((SCREEN1_END - log_start) >> PAGE_SHIFT);
