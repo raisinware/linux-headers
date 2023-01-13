@@ -1,15 +1,15 @@
 /*********************************************************************
  *                
- * Filename:      pc87108.h
+ * Filename:      nsc_fir.h
  * Version:       
  * Description:   
  * Status:        Experimental.
  * Author:        Dag Brattli <dagb@cs.uit.no>
  * Created at:    Fri Nov 13 14:37:40 1998
- * Modified at:   Mon Jan 25 23:10:25 1999
+ * Modified at:   Tue Jan 11 10:19:50 2000
  * Modified by:   Dag Brattli <dagb@cs.uit.no>
  * 
- *     Copyright (c) 1998 Dag Brattli <dagb@cs.uit.no>
+ *     Copyright (c) 1998-2000 Dag Brattli <dagb@cs.uit.no>
  *     Copyright (c) 1998 Lichen Wang, <lwang@actisys.com>
  *     Copyright (c) 1998 Actisys Corp., www.actisys.com
  *     All Rights Reserved
@@ -25,10 +25,20 @@
  *     
  ********************************************************************/
 
-#ifndef PC87108_H
-#define PC87108_H
+#ifndef NSC_IRCC_H
+#define NSC_IRCC_H
 
+#include <linux/time.h>
+
+#include <asm/spinlock.h>
 #include <asm/io.h>
+
+#define PC87108         0x10
+#define PC97338         0xb0
+
+/* DMA modes needed */
+#define DMA_TX_MODE     0x08    /* Mem to I/O, ++, demand. */
+#define DMA_RX_MODE     0x04    /* I/O to mem, ++, demand. */
 
 /* Flags for configuration register CRF0 */
 #define APEDCRC		0x02
@@ -53,7 +63,7 @@
 #define FCR_FIFO_EN     0x01 /* Enable FIFO's */
 #define FCR_RXSR        0x02 /* Rx FIFO soft reset */
 #define FCR_TXSR        0x04 /* Tx FIFO soft reset */
-#define FCR_RXTH	0x80 /* Rx FIFO threshold (set to 16) */
+#define FCR_RXTH	0x40 /* Rx FIFO threshold (set to 16) */
 #define FCR_TXTH	0x20 /* Tx FIFO threshold (set to 17) */
 
 #define EIR		0x02 /* (read only) */
@@ -88,6 +98,7 @@
 #define MCR_MIR  	0x80
 #define MCR_FIR		0xa0
 #define MCR_CEIR        0xb0
+#define MCR_IR_PLS      0x10
 #define MCR_DMA_EN	0x04
 #define MCR_EN_IRQ	0x08
 #define MCR_TX_DFR	0x08
@@ -112,7 +123,7 @@
 #define ECR1		0x02 /* Extended Control Register 1 */
 #define ECR1_EXT_SL	0x01 /* Extended Mode Select */
 #define ECR1_DMANF	0x02 /* DMA Fairness */
-#define ECR1_DMATH      0x04
+#define ECR1_DMATH      0x04 /* DMA Threshold */
 #define ECR1_DMASWP	0x08 /* DMA Swap */
 
 #define EXCR2		0x04
@@ -148,7 +159,7 @@
 #define FRM_ST_MAX_LEN  0x10 /* Max frame len exceeded */
 #define FRM_ST_PHY_ERR  0x08 /* Physical layer error */
 #define FRM_ST_BAD_CRC  0x04 
-#define FRM_ST_OVR1     0x02 /* Receive overrun */
+#define FRM_ST_OVR1     0x02 /* Rx FIFO overrun */
 #define FRM_ST_OVR2     0x01 /* Frame status FIFO overrun */
 
 #define RFLFL           0x06
@@ -176,19 +187,52 @@ struct st_fifo {
 	int len;
 };
 
-/* Private data for each instance */
-struct pc87108 {
-	struct st_fifo st_fifo;
-
-	int tx_buff_offsets[10]; /* Offsets between frames in tx_buff */
-	int tx_len;          /* Number of frames in tx_buff */
-
-	struct irda_device idev;
+struct frame_cb {
+	void *start; /* Start of frame in DMA mem */
+	int len;     /* Lenght of frame in DMA mem */
 };
 
-static inline void switch_bank( int iobase, int bank)
+#define MAX_WINDOW 7
+
+struct tx_fifo {
+	struct frame_cb queue[MAX_WINDOW]; /* Info about frames in queue */
+	int             ptr;               /* Currently being sent */
+	int             len;               /* Lenght of queue */
+	int             free;              /* Next free slot */
+	void           *tail;              /* Next free start in DMA mem */
+};
+
+/* Private data for each instance */
+struct nsc_ircc_cb {
+	struct st_fifo st_fifo;    /* Info about received frames */
+	struct tx_fifo tx_fifo;    /* Info about frames to be transmitted */
+
+	int tx_buff_offsets[10];   /* Offsets between frames in tx_buff */
+	int tx_len;                /* Number of frames in tx_buff */
+
+	struct device *netdev;     /* Yes! we are some kind of netdevice */
+	struct net_device_stats stats;
+	
+	struct irlap_cb *irlap;    /* The link layer we are binded to */
+	
+	struct chipio_t io;        /* IrDA controller information */
+	struct iobuff_t tx_buff;   /* Transmit buffer */
+	struct iobuff_t rx_buff;   /* Receive buffer */
+	struct qos_info qos;       /* QoS capabilities for this device */
+
+	struct timeval  stamp;
+	struct timeval  now;
+
+	spinlock_t lock;           /* For serializing operations */
+	
+	__u32 flags;               /* Interface flags */
+	__u32 new_speed;
+	int suspend;
+};
+
+static inline void switch_bank(int iobase, int bank)
 {
-		outb( bank, iobase+BSR);
+		outb(bank, iobase+BSR);
 }
 
-#endif
+#endif /* NSC_IRCC_H */
