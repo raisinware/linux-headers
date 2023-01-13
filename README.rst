@@ -14,16 +14,16 @@ Install
 =======
 There are 2 methods for easily installing the kernel headers.
 
-meson
-^^^^^
+meson:
+^^^^^^
 
 ::
 
     meson setup build [-Dprefix=...] [-Dincludedir=...] [-Darch=...]
     [DESTDIR=...] meson install -C build
 
-GNU Make
-^^^^^^^^
+GNU Make:
+^^^^^^^^^
 
 ::
 
