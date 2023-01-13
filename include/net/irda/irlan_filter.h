@@ -1,12 +1,12 @@
 /*********************************************************************
  *                
- * Filename:      irlan_eth.h
+ * Filename:      irlan_filter.h
  * Version:       
  * Description:   
  * Status:        Experimental.
  * Author:        Dag Brattli <dagb@cs.uit.no>
- * Created at:    Thu Oct 15 08:36:58 1998
- * Modified at:   Fri Jan 29 15:20:45 1999
+ * Created at:    Fri Jan 29 15:24:08 1999
+ * Modified at:   Sun Feb  7 23:35:31 1999
  * Modified by:   Dag Brattli <dagb@cs.uit.no>
  * 
  *     Copyright (c) 1998 Dag Brattli, All Rights Reserved.
@@ -22,15 +22,12 @@
  *     
  ********************************************************************/
 
-#ifndef IRLAN_ETH_H
-#define IRLAN_ETH_H
+#ifndef IRLAN_FILTER_H
+#define IRLAN_FILTER_H
 
-void irlan_eth_receive( void *instance, void *sap, struct sk_buff *skb);
-int  irlan_eth_xmit( struct sk_buff *skb, struct device *dev);
+void irlan_check_command_param(struct irlan_cb *self, char *param, 
+			       char *value);
+void handle_filter_request(struct irlan_cb *self, struct sk_buff *skb);
+int irlan_print_filter(int filter_type, char *buf);
 
-void irlan_eth_flow_indication( void *instance, void *sap, LOCAL_FLOW flow);
-
-void irlan_eth_set_multicast_list( struct device *dev);
-struct enet_statistics *irlan_eth_get_stats(struct device *dev);
-
-#endif
+#endif /* IRLAN_FILTER_H */
