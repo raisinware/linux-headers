@@ -18,7 +18,7 @@ set -e
 
 NAME="linux"
 #VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'mainline:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
-VERSION="1.3.54"
+VERSION="1.3.55"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
 #URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
