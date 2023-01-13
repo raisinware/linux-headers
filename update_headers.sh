@@ -1,6 +1,6 @@
 #!/bin/sh
 # SPDX-License-Identifier: 0BSD
-# Copyright (C) 2022 by raisinware
+# Copyright (C) 2022-2023 by raisinware
 #
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted.
@@ -17,10 +17,12 @@
 set -e
 
 NAME="linux"
-VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'longterm:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
+#VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'mainline:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
+VERSION="1.0"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
-URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
+#URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
+URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.0/$NAME-$VERSION.tar.xz"
 
 # shellcheck disable=SC2317
 on_exit () {
@@ -51,13 +53,16 @@ tar -xf  "$NAME-$VERSION.tar.xz" --strip-components 1 --exclude-vcs
 rm       "$NAME-$VERSION.tar.xz"
 
 # install all available headers
-ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
+#ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
+ARCHS="x86"
 for arch in $ARCHS
 do
-	mkdir "../.header_tmp/$arch"
+	#mkdir "../.header_tmp/$arch"
+	mkdir -p "../.header_tmp/$arch/include"
 	echo  "Installing $arch headers..."
 	make  distclean || true
-	make  headers_install ARCH="$arch" INSTALL_HDR_PATH="../.header_tmp/$arch" || true
+	#make  headers_install ARCH="$arch" INSTALL_HDR_PATH="../.header_tmp/$arch" || true
+	cp    -rv "include/asm" "include/linux" "../.header_tmp/$arch/include"
 done
 
 # clean up kernel temp folder
