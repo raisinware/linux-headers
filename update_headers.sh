@@ -1,6 +1,6 @@
 #!/bin/sh
 # SPDX-License-Identifier: 0BSD
-# Copyright (C) 2022 by raisinware
+# Copyright (C) 2022-2023 by raisinware
 #
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted.
@@ -17,10 +17,12 @@
 set -e
 
 NAME="linux"
-VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'longterm:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
+#VERSION="$(curl -s https://www.kernel.org/ | grep -A1 'stable:' -m1 | grep -oP '(?<=strong>).*(?=</strong.*)')"
+VERSION="2.6.29"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
-URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
+#URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
+URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.6/$NAME-$VERSION.tar.xz"
 
 # shellcheck disable=SC2317
 on_exit () {
@@ -51,35 +53,32 @@ tar -xf  "$NAME-$VERSION.tar.xz" --strip-components 1 --exclude-vcs
 rm       "$NAME-$VERSION.tar.xz"
 
 # install all available headers
-ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
-for arch in $ARCHS
-do
-	mkdir "../.header_tmp/$arch"
-	echo  "Installing $arch headers..."
-	make  distclean || true
-	make  headers_install ARCH="$arch" INSTALL_HDR_PATH="../.header_tmp/$arch" || true
-done
+mkdir -p "../.header_tmp/"
+echo  "Installing all headers..."
+make  distclean || true
+make  headers_install_all INSTALL_HDR_PATH="../.header_tmp/" || true
 
 # clean up kernel temp folder
 cd ..
 rm -rf ".kernel_tmp"
 
 # prepare headers
-cd   .header_tmp
-find . -type d -empty -delete
-ARCHS="$(find . -maxdepth 1 -type d | cut -c3-)"
+cd   .header_tmp/include
+mv "asm-generic" ../../include
+ARCHS="$(find . -maxdepth 1 -type d | grep asm | cut -d- -f2-)"
 for arch in $ARCHS
 do
 	echo  "Preparing $arch headers..."
-	mkdir "../arch/$arch"
-	cd    "$arch/include"
-	mv    asm/ "../../../arch/$arch"
-	cp    -rl ./*/ "../../../include" 2>/dev/null || true
-	cd    "../.."
-	rm    -rf "$arch/include"
+	mkdir "../../arch/$arch"
+	mv    asm-$arch/ "../../arch/$arch/asm"
+done
+DIRS="$(find . -mindepth 1 -maxdepth 1 -type d)"
+for dir in $DIRS
+do
+	mv $dir "../../include/$dir"
 done
 
 # cleanup header tmp folder
-cd ..
+cd ../..
 rm -rf ".header_tmp"
 exit 0

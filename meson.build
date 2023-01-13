@@ -14,7 +14,7 @@
 project(
 	'linux-headers',
 	'c',
-	version: '1.0.x'
+	version: '2.6.x'
 )
 
 fs = import('fs')
