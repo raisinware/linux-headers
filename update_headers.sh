@@ -14,6 +14,7 @@
 # CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #
 ## script to grab latest lts kernel sources and export raw uapi headers
+
 set -e
 
 NAME="linux"
