@@ -12,6 +12,7 @@
 #define _LINUX_AUTO_FS_H
 
 #include <linux/types.h>
+#include <linux/limits.h>
 #include <sys/ioctl.h>
 
 
