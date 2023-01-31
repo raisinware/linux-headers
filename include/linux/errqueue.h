@@ -3,8 +3,7 @@
 
 #include <linux/types.h>
 
-struct sock_extended_err
-{
+struct sock_extended_err {
 	__u32	ee_errno;	
 	__u8	ee_origin;
 	__u8	ee_type;

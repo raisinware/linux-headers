@@ -52,14 +52,13 @@ struct e820map {
 	struct e820entry map[E820_X_MAX];
 };
 
-#endif /* __ASSEMBLY__ */
-
 #define ISA_START_ADDRESS	0xa0000
 #define ISA_END_ADDRESS		0x100000
-#define is_ISA_range(s, e) ((s) >= ISA_START_ADDRESS && (e) < ISA_END_ADDRESS)
 
 #define BIOS_BEGIN		0x000a0000
 #define BIOS_END		0x00100000
+
+#endif /* __ASSEMBLY__ */
 
 
 #endif /* _ASM_X86_E820_H */

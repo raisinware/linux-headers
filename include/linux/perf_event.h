@@ -31,6 +31,7 @@ enum perf_type_id {
 	PERF_TYPE_TRACEPOINT			= 2,
 	PERF_TYPE_HW_CACHE			= 3,
 	PERF_TYPE_RAW				= 4,
+	PERF_TYPE_BREAKPOINT			= 5,
 
 	PERF_TYPE_MAX,				/* non-ABI */
 };
@@ -102,6 +103,8 @@ enum perf_sw_ids {
 	PERF_COUNT_SW_CPU_MIGRATIONS		= 4,
 	PERF_COUNT_SW_PAGE_FAULTS_MIN		= 5,
 	PERF_COUNT_SW_PAGE_FAULTS_MAJ		= 6,
+	PERF_COUNT_SW_ALIGNMENT_FAULTS		= 7,
+	PERF_COUNT_SW_EMULATION_FAULTS		= 8,
 
 	PERF_COUNT_SW_MAX,			/* non-ABI */
 };
@@ -207,9 +210,10 @@ struct perf_event_attr {
 		__u32		wakeup_events;	  /* wakeup every n events */
 		__u32		wakeup_watermark; /* bytes before wakeup   */
 	};
-	__u32			__reserved_2;
 
-	__u64			__reserved_3;
+	__u32			bp_type;
+	__u64			bp_addr;
+	__u64			bp_len;
 };
 
 /*
@@ -219,8 +223,9 @@ struct perf_event_attr {
 #define PERF_EVENT_IOC_DISABLE		_IO ('$', 1)
 #define PERF_EVENT_IOC_REFRESH		_IO ('$', 2)
 #define PERF_EVENT_IOC_RESET		_IO ('$', 3)
-#define PERF_EVENT_IOC_PERIOD		_IOW('$', 4, u64)
+#define PERF_EVENT_IOC_PERIOD		_IOW('$', 4, __u64)
 #define PERF_EVENT_IOC_SET_OUTPUT	_IO ('$', 5)
+#define PERF_EVENT_IOC_SET_FILTER	_IOW('$', 6, char *)
 
 enum perf_event_ioc_flags {
 	PERF_IOC_FLAG_GROUP		= 1U << 0,

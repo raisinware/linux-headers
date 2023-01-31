@@ -311,5 +311,6 @@
 #define __NR_preadv			1319
 #define __NR_pwritev			1320
 #define __NR_rt_tgsigqueueinfo		1321
+#define __NR_recvmmsg			1322
 
 #endif /* _ASM_IA64_UNISTD_H */

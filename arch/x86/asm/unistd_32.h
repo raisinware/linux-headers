@@ -342,5 +342,6 @@
 #define __NR_pwritev		334
 #define __NR_rt_tgsigqueueinfo	335
 #define __NR_perf_event_open	336
+#define __NR_recvmmsg		337
 
 #endif /* _ASM_X86_UNISTD_32_H */

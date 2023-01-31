@@ -34,14 +34,12 @@
 struct xt_match;
 struct xt_target;
 
-struct ebt_counter
-{
+struct ebt_counter {
 	uint64_t pcnt;
 	uint64_t bcnt;
 };
 
-struct ebt_replace
-{
+struct ebt_replace {
 	char name[EBT_TABLE_MAXNAMELEN];
 	unsigned int valid_hooks;
 	/* nr of rules in the table */
@@ -57,8 +55,7 @@ struct ebt_replace
 	char *entries;
 };
 
-struct ebt_replace_kernel
-{
+struct ebt_replace_kernel {
 	char name[EBT_TABLE_MAXNAMELEN];
 	unsigned int valid_hooks;
 	/* nr of rules in the table */
@@ -120,8 +117,7 @@ struct ebt_entries {
 #define EBT_INV_MASK (EBT_IPROTO | EBT_IIN | EBT_IOUT | EBT_ILOGICALIN \
    | EBT_ILOGICALOUT | EBT_ISOURCE | EBT_IDEST)
 
-struct ebt_entry_match
-{
+struct ebt_entry_match {
 	union {
 		char name[EBT_FUNCTION_MAXNAMELEN];
 		struct xt_match *match;
@@ -131,8 +127,7 @@ struct ebt_entry_match
 	unsigned char data[0] __attribute__ ((aligned (__alignof__(struct ebt_replace))));
 };
 
-struct ebt_entry_watcher
-{
+struct ebt_entry_watcher {
 	union {
 		char name[EBT_FUNCTION_MAXNAMELEN];
 		struct xt_target *watcher;
@@ -142,8 +137,7 @@ struct ebt_entry_watcher
 	unsigned char data[0] __attribute__ ((aligned (__alignof__(struct ebt_replace))));
 };
 
-struct ebt_entry_target
-{
+struct ebt_entry_target {
 	union {
 		char name[EBT_FUNCTION_MAXNAMELEN];
 		struct xt_target *target;
@@ -154,8 +148,7 @@ struct ebt_entry_target
 };
 
 #define EBT_STANDARD_TARGET "standard"
-struct ebt_standard_target
-{
+struct ebt_standard_target {
 	struct ebt_entry_target target;
 	int verdict;
 };

@@ -385,5 +385,7 @@
 #define __NR_pwritev		362
 #define __NR_rt_tgsigqueueinfo	363
 #define __NR_perf_event_open	364
+#define __NR_recvmmsg		365
+#define __NR_accept4		366
 
 #endif /* __ASM_SH_UNISTD_64_H */

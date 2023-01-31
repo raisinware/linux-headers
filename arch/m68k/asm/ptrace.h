@@ -71,5 +71,7 @@ struct switch_stack {
 #define PTRACE_GETFPREGS          14
 #define PTRACE_SETFPREGS          15
 
+#define PTRACE_SINGLEBLOCK	33	/* resume execution until next branch */
+
 #endif /* __ASSEMBLY__ */
 #endif /* _M68K_PTRACE_H */

@@ -16,7 +16,6 @@
 
 # include <linux/types.h>
 #include <linux/nfsd/const.h>
-#include <linux/nfsd/debug.h>
 
 /*
  * This is the old "dentry style" Linux NFSv2 file handle.
