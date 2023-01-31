@@ -52,29 +52,32 @@ tar -xf  "$NAME-$VERSION.tar.xz" --strip-components 1 --exclude-vcs
 rm       "$NAME-$VERSION.tar.xz"
 
 # install all available headers
-mkdir -p "../.header_tmp/"
-echo  "Installing all headers..."
-make  distclean || true
-make  headers_install_all INSTALL_HDR_PATH="../.header_tmp/" || true
+ARCHS="$(find ./arch/ -maxdepth 1 -type d | cut -c8-)"
+for arch in $ARCHS
+do
+	mkdir "../.header_tmp/$arch"
+	echo  "Installing $arch headers..."
+	make  distclean || true
+	make  headers_install ARCH="$arch" INSTALL_HDR_PATH="../.header_tmp/$arch" || true
+done
 
 # clean up kernel temp folder
 cd ..
 rm -rf ".kernel_tmp"
 
 # prepare headers
-cd   .header_tmp/include
-mv "asm-generic" ../../include
-ARCHS="$(find . -maxdepth 1 -type d | grep asm | cut -d- -f2-)"
+cd   .header_tmp
+find . -type d -empty -delete
+ARCHS="$(find . -maxdepth 1 -type d | cut -c3-)"
 for arch in $ARCHS
 do
 	echo  "Preparing $arch headers..."
-	mkdir "../../arch/$arch"
-	mv    asm-$arch/ "../../arch/$arch/asm"
-done
-DIRS="$(find . -mindepth 1 -maxdepth 1 -type d)"
-for dir in $DIRS
-do
-	mv $dir "../../include/$dir"
+	mkdir "../arch/$arch"
+	cd    "$arch/include"
+	mv    asm/ "../../../arch/$arch"
+	cp    -rl ./*/ "../../../include" 2>/dev/null || true
+	cd    "../.."
+	rm    -rf "$arch/include"
 done
 
 # cleanup header tmp folder
