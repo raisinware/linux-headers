@@ -1,16 +1,9 @@
 #ifndef _ASM_X86_TYPES_H
 #define _ASM_X86_TYPES_H
 
-#include <asm-generic/int-ll64.h>
+#define dma_addr_t	dma_addr_t
 
-#ifndef __ASSEMBLY__
+#include <asm-generic/types.h>
 
-typedef unsigned short umode_t;
-
-#endif /* __ASSEMBLY__ */
-
-/*
- * These aren't exported outside the kernel to avoid name space clashes
- */
 
 #endif /* _ASM_X86_TYPES_H */

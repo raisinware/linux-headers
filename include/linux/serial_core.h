@@ -20,6 +20,8 @@
 #ifndef LINUX_SERIAL_CORE_H
 #define LINUX_SERIAL_CORE_H
 
+#include <linux/serial.h>
+
 /*
  * The type definitions.  These are from Ted Ts'o's serial.h
  */
@@ -173,6 +175,9 @@
 
 /* Qualcomm MSM SoCs */
 #define PORT_MSM	88
+
+/* BCM63xx family SoCs */
+#define PORT_BCM63XX	89
 
 
 #endif /* LINUX_SERIAL_CORE_H */

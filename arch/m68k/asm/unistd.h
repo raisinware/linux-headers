@@ -335,6 +335,6 @@
 #define __NR_preadv		329
 #define __NR_pwritev		330
 #define __NR_rt_tgsigqueueinfo	331
-#define __NR_perf_counter_open	332
+#define __NR_perf_event_open	332
 
 #endif /* _ASM_M68K_UNISTD_H_ */

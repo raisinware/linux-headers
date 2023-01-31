@@ -38,6 +38,7 @@
 #define PNPIPE_IFINDEX		2
 
 #define PNADDR_ANY		0
+#define PNADDR_BROADCAST	0xFC
 #define PNPORT_RESOURCE_ROUTING	0
 
 /* Values for PNPIPE_ENCAP option */
@@ -98,6 +99,9 @@ struct sockaddr_pn {
 	__u8 spn_resource;
 	__u8 spn_zero[sizeof(struct sockaddr) - sizeof(sa_family_t) - 3];
 } __attribute__ ((packed));
+
+/* Well known address */
+#define PN_DEV_PC	0x10
 
 static __inline__ __u16 pn_object(__u8 addr, __u16 port)
 {
@@ -169,5 +173,7 @@ static __inline__ __u8 pn_sockaddr_get_resource(const struct sockaddr_pn *spn)
 {
 	return spn->spn_resource;
 }
+
+/* Phonet device ioctl requests */
 
 #endif

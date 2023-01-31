@@ -29,7 +29,6 @@
 #include <linux/types.h>
 
 
-struct file;
 struct completion;
 
 #define CTL_MAXNAME 10		/* how many path components do we allow in a

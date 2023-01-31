@@ -52,6 +52,7 @@ struct proc_event {
 		PROC_EVENT_EXEC = 0x00000002,
 		PROC_EVENT_UID  = 0x00000004,
 		PROC_EVENT_GID  = 0x00000040,
+		PROC_EVENT_SID  = 0x00000080,
 		/* "next" should be 0x00000400 */
 		/* "last" is the last process event: exit */
 		PROC_EVENT_EXIT = 0x80000000
@@ -88,6 +89,11 @@ struct proc_event {
 				__u32 egid;
 			} e;
 		} id;
+
+		struct sid_proc_event {
+			__kernel_pid_t process_pid;
+			__kernel_pid_t process_tgid;
+		} sid;
 
 		struct exit_proc_event {
 			__kernel_pid_t process_pid;

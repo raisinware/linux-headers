@@ -8,20 +8,8 @@
  * need to be careful to avoid a name clashes.
  */
 
-#if defined(__sparc__) && defined(__arch64__)
+#if defined(__sparc__)
 
-/*** SPARC 64 bit ***/
-#include <asm-generic/int-ll64.h>
-
-#ifndef __ASSEMBLY__
-
-typedef unsigned short umode_t;
-
-#endif /* __ASSEMBLY__ */
-
-#else
-
-/*** SPARC 32 bit ***/
 #include <asm-generic/int-ll64.h>
 
 #ifndef __ASSEMBLY__
@@ -31,6 +19,6 @@ typedef unsigned short umode_t;
 #endif /* __ASSEMBLY__ */
 
 
-#endif /* defined(__sparc__) && defined(__arch64__) */
+#endif /* defined(__sparc__) */
 
 #endif /* defined(_SPARC_TYPES_H) */
