@@ -449,5 +449,8 @@
 #define __NR_pwritev			491
 #define __NR_rt_tgsigqueueinfo		492
 #define __NR_perf_event_open		493
+#define __NR_fanotify_init		494
+#define __NR_fanotify_mark		495
+#define __NR_prlimit64			496
 
 #endif /* _ALPHA_UNISTD_H */

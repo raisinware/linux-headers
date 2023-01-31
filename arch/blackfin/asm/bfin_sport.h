@@ -58,12 +58,6 @@ struct sport_config {
 #define SPORT_IOC_CONFIG	_IOWR('P', 0x01, struct sport_config)
 
 
-/* Workaround defBF*.h SPORT MMRs till they get cleansed */
-#undef DTYPE_NORM
-#undef SLEN
-#undef SP_WOFF
-#undef SP_WSIZE
-
 /* SPORT_TCR1 Masks */
 #define TSPEN		0x0001	/* TX enable */
 #define ITCLK		0x0002	/* Internal TX Clock Select */

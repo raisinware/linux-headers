@@ -44,7 +44,8 @@
 #define PORT_RM9000	16	/* PMC-Sierra RM9xxx internal UART */
 #define PORT_OCTEON	17	/* Cavium OCTEON internal UART */
 #define PORT_AR7	18	/* Texas Instruments AR7 internal UART */
-#define PORT_MAX_8250	18	/* max port ID */
+#define PORT_U6_16550A	19	/* ST-Ericsson U6xxx internal UART */
+#define PORT_MAX_8250	19	/* max port ID */
 
 /*
  * ARM specific type numbers.  These are not currently guaranteed
@@ -185,6 +186,15 @@
 /* Altera UARTs */
 #define PORT_ALTERA_JTAGUART	91
 #define PORT_ALTERA_UART	92
+
+/* SH-SCI */
+#define PORT_SCIFB	93
+
+/* MAX3107 */
+#define PORT_MAX3107	94
+
+/* High Speed UART for Medfield */
+#define PORT_MFD	95
 
 
 #endif /* LINUX_SERIAL_CORE_H */

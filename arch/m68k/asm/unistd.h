@@ -340,5 +340,8 @@
 #define __NR_set_thread_area	334
 #define __NR_atomic_cmpxchg_32	335
 #define __NR_atomic_barrier	336
+#define __NR_fanotify_init	337
+#define __NR_fanotify_mark	338
+#define __NR_prlimit64		339
 
 #endif /* _ASM_M68K_UNISTD_H_ */

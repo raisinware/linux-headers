@@ -312,5 +312,8 @@
 #define __NR_pwritev			1320
 #define __NR_rt_tgsigqueueinfo		1321
 #define __NR_recvmmsg			1322
+#define __NR_fanotify_init		1323
+#define __NR_fanotify_mark		1324
+#define __NR_prlimit64			1325
 
 #endif /* _ASM_IA64_UNISTD_H */

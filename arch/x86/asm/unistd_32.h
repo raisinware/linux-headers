@@ -343,5 +343,8 @@
 #define __NR_rt_tgsigqueueinfo	335
 #define __NR_perf_event_open	336
 #define __NR_recvmmsg		337
+#define __NR_fanotify_init	338
+#define __NR_fanotify_mark	339
+#define __NR_prlimit64		340
 
 #endif /* _ASM_X86_UNISTD_32_H */
