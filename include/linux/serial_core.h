@@ -182,5 +182,9 @@
 /* Aeroflex Gaisler GRLIB APBUART */
 #define PORT_APBUART    90
 
+/* Altera UARTs */
+#define PORT_ALTERA_JTAGUART	91
+#define PORT_ALTERA_UART	92
+
 
 #endif /* LINUX_SERIAL_CORE_H */

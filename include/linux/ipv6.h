@@ -21,6 +21,10 @@ struct in6_pktinfo {
 	int		ipi6_ifindex;
 };
 
+struct ip6_mtuinfo {
+	struct sockaddr_in6	ip6m_addr;
+	__u32			ip6m_mtu;
+};
 
 struct in6_ifreq {
 	struct in6_addr	ifr6_addr;

@@ -558,7 +558,7 @@ enum {
 #define SNDRV_TIMER_FLG_SLAVE		(1<<0)	/* cannot be controlled */
 
 struct snd_timer_id {
-	int dev_class;	
+	int dev_class;
 	int dev_sclass;
 	int card;
 	int device;
@@ -746,7 +746,7 @@ struct snd_ctl_elem_id {
 	snd_ctl_elem_iface_t iface;	/* interface identifier */
 	unsigned int device;		/* device/client number */
 	unsigned int subdevice;		/* subdevice (substream) number */
-        unsigned char name[44];		/* ASCII name of item */
+	unsigned char name[44];		/* ASCII name of item */
 	unsigned int index;		/* index of item */
 };
 
@@ -793,7 +793,7 @@ struct snd_ctl_elem_info {
 struct snd_ctl_elem_value {
 	struct snd_ctl_elem_id id;	/* W: element ID */
 	unsigned int indirect: 1;	/* W: indirect access - obsoleted */
-        union {
+	union {
 		union {
 			long value[128];
 			long *value_ptr;	/* obsoleted */
@@ -811,15 +811,15 @@ struct snd_ctl_elem_value {
 			unsigned char *data_ptr;	/* obsoleted */
 		} bytes;
 		struct snd_aes_iec958 iec958;
-        } value;                /* RO */
+	} value;		/* RO */
 	struct timespec tstamp;
-        unsigned char reserved[128-sizeof(struct timespec)];
+	unsigned char reserved[128-sizeof(struct timespec)];
 };
 
 struct snd_ctl_tlv {
-        unsigned int numid;	/* control element numeric identification */
-        unsigned int length;	/* in bytes aligned to 4 */
-        unsigned int tlv[0];	/* first TLV */
+	unsigned int numid;	/* control element numeric identification */
+	unsigned int length;	/* in bytes aligned to 4 */
+	unsigned int tlv[0];	/* first TLV */
 };
 
 #define SNDRV_CTL_IOCTL_PVERSION	_IOR('U', 0x00, int)
@@ -870,8 +870,8 @@ struct snd_ctl_event {
 			unsigned int mask;
 			struct snd_ctl_elem_id id;
 		} elem;
-                unsigned char data8[60];
-        } data;
+		unsigned char data8[60];
+	} data;
 };
 
 /*
