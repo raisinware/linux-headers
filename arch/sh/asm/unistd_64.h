@@ -387,5 +387,8 @@
 #define __NR_perf_event_open	364
 #define __NR_recvmmsg		365
 #define __NR_accept4		366
+#define __NR_fanotify_init	367
+#define __NR_fanotify_mark	368
+#define __NR_prlimit64		369
 
 #endif /* __ASM_SH_UNISTD_64_H */

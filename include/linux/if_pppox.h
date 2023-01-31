@@ -34,25 +34,35 @@
  * PPPoE addressing definition 
  */ 
 typedef __be16 sid_t;
-struct pppoe_addr{ 
-       sid_t           sid;                    /* Session identifier */ 
-       unsigned char   remote[ETH_ALEN];       /* Remote address */ 
-       char            dev[IFNAMSIZ];          /* Local device to use */ 
+struct pppoe_addr {
+	sid_t         sid;                    /* Session identifier */
+	unsigned char remote[ETH_ALEN];       /* Remote address */
+	char          dev[IFNAMSIZ];          /* Local device to use */
 }; 
  
 /************************************************************************ 
- * Protocols supported by AF_PPPOX 
- */ 
+ * PPTP addressing definition
+ */
+struct pptp_addr {
+	__be16		call_id;
+	struct in_addr	sin_addr;
+};
+
+/************************************************************************
+ * Protocols supported by AF_PPPOX
+ */
 #define PX_PROTO_OE    0 /* Currently just PPPoE */
 #define PX_PROTO_OL2TP 1 /* Now L2TP also */
-#define PX_MAX_PROTO   2
+#define PX_PROTO_PPTP  2
+#define PX_MAX_PROTO   3
 
-struct sockaddr_pppox { 
-       sa_family_t     sa_family;            /* address family, AF_PPPOX */ 
-       unsigned int    sa_protocol;          /* protocol identifier */ 
-       union{ 
-               struct pppoe_addr       pppoe; 
-       }sa_addr; 
+struct sockaddr_pppox {
+	sa_family_t     sa_family;            /* address family, AF_PPPOX */
+	unsigned int    sa_protocol;          /* protocol identifier */
+	union {
+		struct pppoe_addr  pppoe;
+		struct pptp_addr   pptp;
+	} sa_addr;
 } __attribute__((packed));
 
 /* The use of the above union isn't viable because the size of this

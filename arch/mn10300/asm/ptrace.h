@@ -40,7 +40,6 @@
 #define	PT_PC		26
 #define NR_PTREGS	27
 
-#ifndef __ASSEMBLY__
 /*
  * This defines the way registers are stored in the event of an exception
  * - the strange order is due to the MOVM instruction
@@ -75,7 +74,6 @@ struct pt_regs {
 	unsigned long		epsw;
 	unsigned long		pc;
 };
-#endif
 
 /* Arbitrarily choose the same ptrace numbers as used by the Sparc code. */
 #define PTRACE_GETREGS            12

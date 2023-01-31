@@ -63,6 +63,9 @@ struct e820map {
 #define BIOS_BEGIN		0x000a0000
 #define BIOS_END		0x00100000
 
+#define BIOS_ROM_BASE		0xffe00000
+#define BIOS_ROM_END		0xffffffff
+
 #endif /* __ASSEMBLY__ */
 
 

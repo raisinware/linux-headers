@@ -196,5 +196,8 @@
 /* High Speed UART for Medfield */
 #define PORT_MFD	95
 
+/* TI OMAP-UART */
+#define PORT_OMAP	96
+
 
 #endif /* LINUX_SERIAL_CORE_H */
