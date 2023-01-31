@@ -198,8 +198,10 @@ extern long ia64_cmpxchg_called_with_bad_pointer (void);
 
 
 #ifndef __ASSEMBLY__
+
 #define IA64_INTRINSIC_API(name)	ia64_native_ ## name
 #define IA64_INTRINSIC_MACRO(name)	ia64_native_ ## name
+
 
 /************************************************/
 /* Instructions paravirtualized for correctness */
