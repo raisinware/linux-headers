@@ -27,8 +27,4 @@
 #define __ISR_VALID_BIT	0
 #define __ISR_VALID	(1 << __ISR_VALID_BIT)
 
-/*
- * SIGFPE si_codes
- */
-
 #endif /* _ASM_IA64_SIGINFO_H */
