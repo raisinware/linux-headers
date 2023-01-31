@@ -416,6 +416,5 @@
 #define __NR_preadv2		392
 #define __NR_pwritev2		393
 
-#define NR_syscalls 394
 
 #endif /* __ASM_SH_UNISTD_64_H */
