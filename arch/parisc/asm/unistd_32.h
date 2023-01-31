@@ -339,6 +339,7 @@
 #define __NR_pkey_alloc	352
 #define __NR_pkey_free	353
 #define __NR_rseq	354
+#define __NR_kexec_file_load	355
 #define __NR_clock_gettime64	403
 #define __NR_clock_settime64	404
 #define __NR_clock_adjtime64	405

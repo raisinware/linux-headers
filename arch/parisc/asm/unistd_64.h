@@ -339,6 +339,7 @@
 #define __NR_pkey_alloc	352
 #define __NR_pkey_free	353
 #define __NR_rseq	354
+#define __NR_kexec_file_load	355
 #define __NR_pidfd_send_signal	424
 #define __NR_io_uring_setup	425
 #define __NR_io_uring_enter	426
