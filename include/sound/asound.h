@@ -23,7 +23,11 @@
 #ifndef __SOUND_ASOUND_H
 #define __SOUND_ASOUND_H
 
+#if defined(__KERNEL__) || defined(__linux__)
 #include <linux/types.h>
+#else
+#include <sys/ioctl.h>
+#endif
 
 #include <stdlib.h>
 
