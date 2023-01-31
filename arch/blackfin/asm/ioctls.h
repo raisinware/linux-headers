@@ -4,4 +4,4 @@
 #define FIOQSIZE	0x545E
 #include <asm-generic/ioctls.h>
 
-#endif
+#endif /* __ARCH_BFIN_IOCTLS_H__ */

@@ -13,4 +13,4 @@
 
 #include <asm-generic/poll.h>
 
-#endif
+#endif /* __BFIN_POLL_H */

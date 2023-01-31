@@ -47,4 +47,4 @@ static __inline__  __u16 __arch_swab16(__u16 xx)
 
 #endif /* __GNUC__ */
 
-#endif				/* _BLACKFIN_SWAB_H */
+#endif /* _BLACKFIN_SWAB_H */

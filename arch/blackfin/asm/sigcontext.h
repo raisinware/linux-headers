@@ -58,4 +58,4 @@ struct sigcontext {
 	unsigned long sc_seqstat;
 };
 
-#endif
+#endif /* _ASM_BLACKFIN_SIGCONTEXT_H */

@@ -66,4 +66,4 @@ struct stat64 {
 	unsigned long long st_ino;
 };
 
-#endif				/* _BFIN_STAT_H */
+#endif /* _BFIN_STAT_H */

@@ -38,4 +38,4 @@
  */
 #define SEGV_STACKFLOW	(__SI_FAULT|3)	/* stack overflow */
 
-#endif
+#endif /* _BFIN_SIGINFO_H */

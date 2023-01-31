@@ -14,4 +14,4 @@
 
 #include <asm-generic/fcntl.h>
 
-#endif
+#endif /* _BFIN_FCNTL_H */
