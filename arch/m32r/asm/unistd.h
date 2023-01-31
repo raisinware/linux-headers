@@ -330,5 +330,6 @@
 /* #define __NR_timerfd		322 removed */
 #define __NR_eventfd		323
 #define __NR_fallocate		324
+#define __NR_setns		325
 
 #endif /* _ASM_M32R_UNISTD_H */

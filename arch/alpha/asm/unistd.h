@@ -456,5 +456,6 @@
 #define __NR_open_by_handle_at		498
 #define __NR_clock_adjtime		499
 #define __NR_syncfs			500
+#define __NR_setns			501
 
 #endif /* _ALPHA_UNISTD_H */

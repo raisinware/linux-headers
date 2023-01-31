@@ -325,5 +325,6 @@
 #define __NR_move_pages		317
 #define __NR_getcpu		318
 #define __NR_epoll_pwait	319
+#define __NR_setns		320
 
 #endif /* _ASM_H8300_UNISTD_H_ */

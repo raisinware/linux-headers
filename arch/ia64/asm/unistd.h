@@ -319,5 +319,7 @@
 #define __NR_open_by_handle_at  	1327
 #define __NR_clock_adjtime		1328
 #define __NR_syncfs			1329
+#define __NR_setns			1330
+#define __NR_sendmmsg			1331
 
 #endif /* _ASM_IA64_UNISTD_H */

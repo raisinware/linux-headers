@@ -2,8 +2,8 @@
  * Performance events:
  *
  *    Copyright (C) 2008-2009, Thomas Gleixner <tglx@linutronix.de>
- *    Copyright (C) 2008-2009, Red Hat, Inc., Ingo Molnar
- *    Copyright (C) 2008-2009, Red Hat, Inc., Peter Zijlstra
+ *    Copyright (C) 2008-2011, Red Hat, Inc., Ingo Molnar
+ *    Copyright (C) 2008-2011, Red Hat, Inc., Peter Zijlstra
  *
  * Data type definitions, declarations, prototypes.
  *
@@ -52,6 +52,8 @@ enum perf_hw_id {
 	PERF_COUNT_HW_BRANCH_INSTRUCTIONS	= 4,
 	PERF_COUNT_HW_BRANCH_MISSES		= 5,
 	PERF_COUNT_HW_BUS_CYCLES		= 6,
+	PERF_COUNT_HW_STALLED_CYCLES_FRONTEND	= 7,
+	PERF_COUNT_HW_STALLED_CYCLES_BACKEND	= 8,
 
 	PERF_COUNT_HW_MAX,			/* non-ABI */
 };
@@ -135,14 +137,14 @@ enum perf_event_sample_format {
  *
  * struct read_format {
  *	{ u64		value;
- *	  { u64		time_enabled; } && PERF_FORMAT_ENABLED
- *	  { u64		time_running; } && PERF_FORMAT_RUNNING
+ *	  { u64		time_enabled; } && PERF_FORMAT_TOTAL_TIME_ENABLED
+ *	  { u64		time_running; } && PERF_FORMAT_TOTAL_TIME_RUNNING
  *	  { u64		id;           } && PERF_FORMAT_ID
  *	} && !PERF_FORMAT_GROUP
  *
  *	{ u64		nr;
- *	  { u64		time_enabled; } && PERF_FORMAT_ENABLED
- *	  { u64		time_running; } && PERF_FORMAT_RUNNING
+ *	  { u64		time_enabled; } && PERF_FORMAT_TOTAL_TIME_ENABLED
+ *	  { u64		time_running; } && PERF_FORMAT_TOTAL_TIME_RUNNING
  *	  { u64		value;
  *	    { u64	id;           } && PERF_FORMAT_ID
  *	  }		cntr[nr];
@@ -468,8 +470,8 @@ enum perf_callchain_context {
 	PERF_CONTEXT_MAX		= (__u64)-4095,
 };
 
-#define PERF_FLAG_FD_NO_GROUP	(1U << 0)
-#define PERF_FLAG_FD_OUTPUT	(1U << 1)
-#define PERF_FLAG_PID_CGROUP	(1U << 2) /* pid=cgroup id, per-cpu mode only */
+#define PERF_FLAG_FD_NO_GROUP		(1U << 0)
+#define PERF_FLAG_FD_OUTPUT		(1U << 1)
+#define PERF_FLAG_PID_CGROUP		(1U << 2) /* pid=cgroup id, per-cpu mode only */
 
 #endif /* _LINUX_PERF_EVENT_H */

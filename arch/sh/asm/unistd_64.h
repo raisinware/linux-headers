@@ -394,5 +394,7 @@
 #define __NR_open_by_handle_at	371
 #define __NR_clock_adjtime	372
 #define __NR_syncfs		373
+#define __NR_sendmmsg		374
+#define __NR_setns		375
 
 #endif /* __ASM_SH_UNISTD_64_H */

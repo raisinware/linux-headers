@@ -40,6 +40,10 @@
 #define HARDWALL_DEACTIVATE \
  _IO(HARDWALL_IOCTL_BASE, _HARDWALL_DEACTIVATE)
 
+#define _HARDWALL_GET_ID 4
+#define HARDWALL_GET_ID \
+ _IO(HARDWALL_IOCTL_BASE, _HARDWALL_GET_ID)
+
 
 /* This is the canonical name expected by userspace. */
 #define HARDWALL_FILE "/dev/hardwall"
