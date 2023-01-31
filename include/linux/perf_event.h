@@ -288,7 +288,7 @@ struct perf_event_mmap_page {
 };
 
 #define PERF_RECORD_MISC_CPUMODE_MASK		(3 << 0)
-#define PERF_RECORD_MISC_CPUMODE_UNKNOWN		(0 << 0)
+#define PERF_RECORD_MISC_CPUMODE_UNKNOWN	(0 << 0)
 #define PERF_RECORD_MISC_KERNEL			(1 << 0)
 #define PERF_RECORD_MISC_USER			(2 << 0)
 #define PERF_RECORD_MISC_HYPERVISOR		(3 << 0)
@@ -354,8 +354,8 @@ enum perf_event_type {
 	 *	u64				stream_id;
 	 * };
 	 */
-	PERF_RECORD_THROTTLE		= 5,
-	PERF_RECORD_UNTHROTTLE		= 6,
+	PERF_RECORD_THROTTLE			= 5,
+	PERF_RECORD_UNTHROTTLE			= 6,
 
 	/*
 	 * struct {
@@ -369,10 +369,10 @@ enum perf_event_type {
 
 	/*
 	 * struct {
-	 * 	struct perf_event_header	header;
-	 * 	u32				pid, tid;
+	 *	struct perf_event_header	header;
+	 *	u32				pid, tid;
 	 *
-	 * 	struct read_format		values;
+	 *	struct read_format		values;
 	 * };
 	 */
 	PERF_RECORD_READ			= 8,
@@ -410,7 +410,7 @@ enum perf_event_type {
 	 *	  char                  data[size];}&& PERF_SAMPLE_RAW
 	 * };
 	 */
-	PERF_RECORD_SAMPLE		= 9,
+	PERF_RECORD_SAMPLE			= 9,
 
 	PERF_RECORD_MAX,			/* non-ABI */
 };

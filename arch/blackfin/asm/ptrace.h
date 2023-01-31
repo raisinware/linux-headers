@@ -24,6 +24,8 @@
 
 #ifndef __ASSEMBLY__
 
+struct task_struct;
+
 /* this struct defines the way the registers are stored on the
    stack during a system call. */
 
@@ -162,5 +164,7 @@ struct pt_regs {
 #define PT_DATA_ADDR 228
 #define PT_FDPIC_EXEC 232
 #define PT_FDPIC_INTERP 236
+
+#define PT_LAST_PSEUDO PT_FDPIC_INTERP
 
 #endif				/* _BFIN_PTRACE_H */

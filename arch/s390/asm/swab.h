@@ -47,11 +47,11 @@ static __inline__ __u32 __arch_swab32p(const __u32 *x)
 	
 	__asm__ __volatile__(
 #ifndef __s390x__
-		"	icm	%0,8,3(%1)\n"
-		"	icm	%0,4,2(%1)\n"
-		"	icm	%0,2,1(%1)\n"
-		"	ic	%0,0(%1)"
-		: "=&d" (result) : "a" (x), "m" (*x) : "cc");
+		"	icm	%0,8,%O1+3(%R1)\n"
+		"	icm	%0,4,%O1+2(%R1)\n"
+		"	icm	%0,2,%O1+1(%R1)\n"
+		"	ic	%0,%1"
+		: "=&d" (result) : "Q" (*x) : "cc");
 #else /* __s390x__ */
 		"	lrv	%0,%1"
 		: "=d" (result) : "m" (*x));
@@ -77,9 +77,9 @@ static __inline__ __u16 __arch_swab16p(const __u16 *x)
 	
 	__asm__ __volatile__(
 #ifndef __s390x__
-		"	icm	%0,2,1(%1)\n"
-		"	ic	%0,0(%1)\n"
-		: "=&d" (result) : "a" (x), "m" (*x) : "cc");
+		"	icm	%0,2,%O+1(%R1)\n"
+		"	ic	%0,%1\n"
+		: "=&d" (result) : "Q" (*x) : "cc");
 #else /* __s390x__ */
 		"	lrvh	%0,%1"
 		: "=d" (result) : "m" (*x));

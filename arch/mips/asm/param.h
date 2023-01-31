@@ -9,17 +9,8 @@
 #ifndef _ASM_PARAM_H
 #define _ASM_PARAM_H
 
-
-#ifndef HZ
-#define HZ 100
-#endif
-
 #define EXEC_PAGESIZE	65536
 
-#ifndef NOGROUP
-#define NOGROUP		(-1)
-#endif
-
-#define MAXHOSTNAMELEN	64	/* max length of hostname */
+#include <asm-generic/param.h>
 
 #endif /* _ASM_PARAM_H */
