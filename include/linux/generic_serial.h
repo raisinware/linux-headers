@@ -4,7 +4,6 @@
  *  Copyright (C) 1998 R.E.Wolff@BitWizard.nl
  *
  *  written for the SX serial driver.
- *     Contains the code that should be shared over all the serial drivers.
  *
  *  Version 0.1 -- December, 1998.
  */
@@ -12,6 +11,8 @@
 #ifndef GENERIC_SERIAL_H
 #define GENERIC_SERIAL_H
 
+#warning Use of this header is deprecated.
+#warning Since nobody sets the constants defined here for you, you should not, in any case, use them. Including the header is thus pointless.
 
 /* Flags */
 /* Warning: serial.h defines some ASYNC_ flags, they say they are "only"
@@ -20,8 +21,6 @@
 #define GS_TX_INTEN      0x00800000
 #define GS_RX_INTEN      0x00400000
 #define GS_ACTIVE        0x00200000
-
-
 
 #define GS_TYPE_NORMAL   1
 

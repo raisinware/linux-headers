@@ -113,8 +113,5 @@ struct pt_regs {
 
 #define PTRACE_OLDSETOPTIONS	21
 
-/* options set using PTRACE_SETOPTIONS */
-#define PTRACE_O_TRACESYSGOOD	0x00000001
-
 
 #endif /* _ASM_M32R_PTRACE_H */
