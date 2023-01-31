@@ -457,6 +457,12 @@
 #define __NR_io_uring_setup	535
 #define __NR_io_uring_enter	536
 #define __NR_io_uring_register	537
+#define __NR_open_tree	538
+#define __NR_move_mount	539
+#define __NR_fsopen	540
+#define __NR_fsconfig	541
+#define __NR_fsmount	542
+#define __NR_fspick	543
 
 
 #endif /* _ASM_ALPHA_UNISTD_32_H */
