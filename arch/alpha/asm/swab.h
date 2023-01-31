@@ -1,7 +1,7 @@
 #ifndef _ALPHA_SWAB_H
 #define _ALPHA_SWAB_H
 
-#include <asm/types.h>
+#include <linux/types.h>
 
 #include <asm/compiler.h>
 

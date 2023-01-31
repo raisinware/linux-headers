@@ -9,6 +9,7 @@
 #ifndef __BFIN_SPORT_H__
 #define __BFIN_SPORT_H__
 
+
 #define SPORT_MAJOR	237
 #define SPORT_NR_DEVS	2
 

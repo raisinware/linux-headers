@@ -11,7 +11,7 @@
 #ifndef _XTENSA_SWAB_H
 #define _XTENSA_SWAB_H
 
-#include <asm/types.h>
+#include <linux/types.h>
 
 
 #define __SWAB_64_THRU_32__

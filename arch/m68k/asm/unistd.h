@@ -332,5 +332,7 @@
 #define __NR_dup3		326
 #define __NR_pipe2		327
 #define __NR_inotify_init1	328
+#define __NR_preadv		329
+#define __NR_pwritev		330
 
 #endif /* _ASM_M68K_UNISTD_H_ */

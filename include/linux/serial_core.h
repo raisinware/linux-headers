@@ -164,5 +164,8 @@
 /* NWPSERIAL */
 #define PORT_NWPSERIAL	85
 
+/* MAX3100 */
+#define PORT_MAX3100    86
+
 
 #endif /* LINUX_SERIAL_CORE_H */

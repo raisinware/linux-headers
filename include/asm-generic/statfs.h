@@ -1,10 +1,8 @@
 #ifndef _GENERIC_STATFS_H
 #define _GENERIC_STATFS_H
 
-#ifndef __KERNEL_STRICT_NAMES
-# include <linux/types.h>
-typedef __kernel_fsid_t	fsid_t;
-#endif
+#include <linux/types.h>
+
 
 /*
  * Most 64-bit platforms use 'long', while most 32-bit platforms use '__u32'.

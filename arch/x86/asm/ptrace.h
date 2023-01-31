@@ -24,7 +24,7 @@ struct pt_regs {
 	int  xds;
 	int  xes;
 	int  xfs;
-	/* int  gs; */
+	int  xgs;
 	long orig_eax;
 	long eip;
 	int  xcs;

@@ -14,8 +14,8 @@
 #ifndef _LINUX_AUTO_FS_H
 #define _LINUX_AUTO_FS_H
 
-
-#include <linux/ioctl.h>
+#include <linux/types.h>
+#include <sys/ioctl.h>
 
 /* This file describes autofs v3 */
 #define AUTOFS_PROTO_VERSION	3

@@ -341,7 +341,9 @@
 #define __NR_dup3		330
 #define __NR_pipe2		331
 #define __NR_inotify_init1	332
+#define __NR_preadv		333
+#define __NR_pwritev		334
 
-#define NR_syscalls 333
+#define NR_syscalls 335
 
 #endif /* __ASM_SH_UNISTD_H */

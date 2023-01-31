@@ -23,6 +23,8 @@
 #ifndef _SPU_INFO_H
 #define _SPU_INFO_H
 
+#include <linux/types.h>
+
 struct mfc_cq_sr {
 	__u64 mfc_cq_data0_RW;
 	__u64 mfc_cq_data1_RW;

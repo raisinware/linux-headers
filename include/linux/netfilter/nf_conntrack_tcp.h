@@ -2,6 +2,8 @@
 #define _NF_CONNTRACK_TCP_H
 /* TCP tracking. */
 
+#include <linux/types.h>
+
 /* This is exposed to userspace (ctnetlink) */
 enum tcp_conntrack {
 	TCP_CONNTRACK_NONE,
@@ -33,9 +35,12 @@ enum tcp_conntrack {
 /* Has unacknowledged data */
 #define IP_CT_TCP_FLAG_DATA_UNACKNOWLEDGED	0x10
 
+/* The field td_maxack has been set */
+#define IP_CT_TCP_FLAG_MAXACK_SET		0x20
+
 struct nf_ct_tcp_flags {
-	u_int8_t flags;
-	u_int8_t mask;
+	__u8 flags;
+	__u8 mask;
 };
 
 

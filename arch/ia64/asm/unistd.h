@@ -308,5 +308,7 @@
 #define __NR_dup3			1316
 #define __NR_pipe2			1317
 #define __NR_inotify_init1		1318
+#define __NR_preadv			1319
+#define __NR_pwritev			1320
 
 #endif /* _ASM_IA64_UNISTD_H */

@@ -15,5 +15,11 @@ struct reiserfs_xattr_header {
 	__le32 h_hash;		/* hash of the value */
 };
 
+struct reiserfs_security_handle {
+	char *name;
+	void *value;
+	size_t length;
+};
+
 
 #endif  /*  _LINUX_REISERFS_XATTR_H  */

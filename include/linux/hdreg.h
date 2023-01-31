@@ -1,7 +1,6 @@
 #ifndef _LINUX_HDREG_H
 #define _LINUX_HDREG_H
 
-
 #include <linux/types.h>
 
 /*
