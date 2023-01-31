@@ -23,7 +23,7 @@
 #define __NR_lseek	19
 #define __NR_getxpid	20
 #define __NR_osf_mount	21
-#define __NR_umount	22
+#define __NR_umount2	22
 #define __NR_setuid	23
 #define __NR_getxuid	24
 #define __NR_exec_with_loader	25
@@ -177,7 +177,7 @@
 #define __NR_semop	206
 #define __NR_osf_utsname	207
 #define __NR_lchown	208
-#define __NR_osf_shmat	209
+#define __NR_shmat	209
 #define __NR_shmctl	210
 #define __NR_shmdt	211
 #define __NR_shmget	212
@@ -443,6 +443,20 @@
 #define __NR_preadv2	520
 #define __NR_pwritev2	521
 #define __NR_statx	522
+#define __NR_io_pgetevents	523
+#define __NR_pkey_mprotect	524
+#define __NR_pkey_alloc	525
+#define __NR_pkey_free	526
+#define __NR_rseq	527
+#define __NR_statfs64	528
+#define __NR_fstatfs64	529
+#define __NR_getegid	530
+#define __NR_geteuid	531
+#define __NR_getppid	532
+#define __NR_pidfd_send_signal	534
+#define __NR_io_uring_setup	535
+#define __NR_io_uring_enter	536
+#define __NR_io_uring_register	537
 
 
 #endif /* _ASM_ALPHA_UNISTD_32_H */

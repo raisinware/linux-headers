@@ -21,7 +21,7 @@
 #define __NR_getpid	(__NR_Linux + 17)
 #define __NR_getppid	(__NR_Linux + 18)
 #define __NR_mount	(__NR_Linux + 19)
-#define __NR_umount	(__NR_Linux + 20)
+#define __NR_umount2	(__NR_Linux + 20)
 #define __NR_setuid	(__NR_Linux + 21)
 #define __NR_getuid	(__NR_Linux + 22)
 #define __NR_geteuid	(__NR_Linux + 23)
@@ -321,6 +321,18 @@
 #define __NR_copy_file_range	(__NR_Linux + 323)
 #define __NR_preadv2	(__NR_Linux + 324)
 #define __NR_pwritev2	(__NR_Linux + 325)
+#define __NR_statx	(__NR_Linux + 326)
+#define __NR_io_pgetevents	(__NR_Linux + 327)
+#define __NR_perf_event_open	(__NR_Linux + 328)
+#define __NR_seccomp	(__NR_Linux + 329)
+#define __NR_pkey_mprotect	(__NR_Linux + 330)
+#define __NR_pkey_alloc	(__NR_Linux + 331)
+#define __NR_pkey_free	(__NR_Linux + 332)
+#define __NR_rseq	(__NR_Linux + 333)
+#define __NR_pidfd_send_signal	(__NR_Linux + 424)
+#define __NR_io_uring_setup	(__NR_Linux + 425)
+#define __NR_io_uring_enter	(__NR_Linux + 426)
+#define __NR_io_uring_register	(__NR_Linux + 427)
 
 
 #endif /* _ASM_IA64_UNISTD_64_H */

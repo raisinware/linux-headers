@@ -335,6 +335,34 @@
 #define __NR_pwritev2	348
 #define __NR_statx	349
 #define __NR_io_pgetevents	350
+#define __NR_pkey_mprotect	351
+#define __NR_pkey_alloc	352
+#define __NR_pkey_free	353
+#define __NR_rseq	354
+#define __NR_clock_gettime64	403
+#define __NR_clock_settime64	404
+#define __NR_clock_adjtime64	405
+#define __NR_clock_getres_time64	406
+#define __NR_clock_nanosleep_time64	407
+#define __NR_timer_gettime64	408
+#define __NR_timer_settime64	409
+#define __NR_timerfd_gettime64	410
+#define __NR_timerfd_settime64	411
+#define __NR_utimensat_time64	412
+#define __NR_pselect6_time64	413
+#define __NR_ppoll_time64	414
+#define __NR_io_pgetevents_time64	416
+#define __NR_recvmmsg_time64	417
+#define __NR_mq_timedsend_time64	418
+#define __NR_mq_timedreceive_time64	419
+#define __NR_semtimedop_time64	420
+#define __NR_rt_sigtimedwait_time64	421
+#define __NR_futex_time64	422
+#define __NR_sched_rr_get_interval_time64	423
+#define __NR_pidfd_send_signal	424
+#define __NR_io_uring_setup	425
+#define __NR_io_uring_enter	426
+#define __NR_io_uring_register	427
 
 
 #endif /* _ASM_PARISC_UNISTD_32_H */
