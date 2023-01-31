@@ -15,7 +15,7 @@
 
 #ifdef CONFIG_CPU_MIPSR2
 
-static __inline__ __u16 __arch_swab16(__u16 x)
+static __inline__  __u16 __arch_swab16(__u16 x)
 {
 	__asm__(
 	"	wsbh	%0, %1			\n"
@@ -26,7 +26,7 @@ static __inline__ __u16 __arch_swab16(__u16 x)
 }
 #define __arch_swab16 __arch_swab16
 
-static __inline__ __u32 __arch_swab32(__u32 x)
+static __inline__  __u32 __arch_swab32(__u32 x)
 {
 	__asm__(
 	"	wsbh	%0, %1			\n"
@@ -43,7 +43,7 @@ static __inline__ __u32 __arch_swab32(__u32 x)
  * optimized version for 64-bit kernel on r2 CPUs.
  */
 #ifdef CONFIG_64BIT
-static __inline__ __u64 __arch_swab64(__u64 x)
+static __inline__  __u64 __arch_swab64(__u64 x)
 {
 	__asm__(
 	"	dsbh	%0, %1\n"

@@ -7,7 +7,7 @@
 
 #ifdef __GNUC__
 
-static __inline__ __u32 __arch_swab32(__u32 x)
+static __inline__  __u32 __arch_swab32(__u32 x)
 {
 	/*
 	 * Unfortunately, we can't use the 6 instruction sequence

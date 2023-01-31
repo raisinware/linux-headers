@@ -9,7 +9,7 @@
 #include <linux/types.h>
 #include <asm-generic/swab.h>
 
-static __inline__ __u32 __arch_swab32(__u32 x)
+static __inline__  __u32 __arch_swab32(__u32 x)
 {
 	__asm__(
 #ifdef __SH5__
@@ -27,7 +27,7 @@ static __inline__ __u32 __arch_swab32(__u32 x)
 }
 #define __arch_swab32 __arch_swab32
 
-static __inline__ __u16 __arch_swab16(__u16 x)
+static __inline__  __u16 __arch_swab16(__u16 x)
 {
 	__asm__(
 #ifdef __SH5__
