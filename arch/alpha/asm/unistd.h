@@ -465,5 +465,7 @@
 #define __NR_setns			501
 #define __NR_accept4			502
 #define __NR_sendmmsg			503
+#define __NR_process_vm_readv		504
+#define __NR_process_vm_writev		505
 
 #endif /* _ALPHA_UNISTD_H */

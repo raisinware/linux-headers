@@ -1,17 +1,1 @@
-#ifndef _M68K_TYPES_H
-#define _M68K_TYPES_H
-
-/*
- * This file is never included by application software unless
- * explicitly requested (e.g., via linux/types.h) in which case the
- * application is Linux specific so (user-) name space pollution is
- * not a major issue.  However, for interoperability, libraries still
- * need to be careful to avoid a name clashes.
- */
-#include <asm-generic/int-ll64.h>
-
-/*
- * These aren't exported outside the kernel to avoid name space clashes
- */
-
-#endif /* _M68K_TYPES_H */
+#include <asm-generic/types.h>
