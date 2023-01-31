@@ -89,4 +89,4 @@ enum {
 };
 
 
-#endif	/* _LINUX_DEV_H */
+#endif	/* _LINUX_NETDEVICE_H */

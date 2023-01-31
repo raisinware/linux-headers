@@ -383,5 +383,7 @@
 #define __NR_inotify_init1	360
 #define __NR_preadv		361
 #define __NR_pwritev		362
+#define __NR_rt_tgsigqueueinfo	363
+#define __NR_perf_counter_open	364
 
 #endif /* __ASM_SH_UNISTD_64_H */

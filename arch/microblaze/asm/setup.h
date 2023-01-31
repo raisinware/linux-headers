@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2007-2008 Michal Simek <monstr@monstr.eu>
+ * Copyright (C) 2007-2009 Michal Simek <monstr@monstr.eu>
+ * Copyright (C) 2007-2009 PetaLogix
  * Copyright (C) 2006 Atmark Techno, Inc.
  *
  * This file is subject to the terms and conditions of the GNU General Public
@@ -13,27 +14,6 @@
 #define COMMAND_LINE_SIZE	256
 
 # ifndef __ASSEMBLY__
-
-
-void early_printk(const char *fmt, ...);
-
-int setup_early_printk(char *opt);
-void disable_early_printk(void);
-
-void heartbeat(void);
-void setup_heartbeat(void);
-
-unsigned long long sched_clock(void);
-
-void time_init(void);
-void init_IRQ(void);
-void machine_early_init(const char *cmdline, unsigned int ram,
-						unsigned int fdt);
-
-void machine_restart(char *cmd);
-void machine_shutdown(void);
-void machine_halt(void);
-void machine_power_off(void);
 
 # endif /* __ASSEMBLY__ */
 #endif /* _ASM_MICROBLAZE_SETUP_H */

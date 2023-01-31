@@ -187,4 +187,6 @@ struct pt_regs {
 #define PPC_PTRACE_PEEKUSR_3264  0x91
 #define PPC_PTRACE_POKEUSR_3264  0x90
 
+#define PTRACE_SINGLEBLOCK	0x100	/* resume execution until next branch */
+
 #endif /* _ASM_POWERPC_PTRACE_H */

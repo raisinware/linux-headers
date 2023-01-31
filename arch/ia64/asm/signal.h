@@ -107,7 +107,7 @@
 #define SIGSTKSZ	262144	/* default stack size for sigaltstack() */
 
 
-#include <asm-generic/signal.h>
+#include <asm-generic/signal-defs.h>
 
 # ifndef __ASSEMBLY__
 

@@ -2,10 +2,11 @@
 #define _ASM_IA64_TYPES_H
 
 /*
- * This file is never included by application software unless explicitly requested (e.g.,
- * via linux/types.h) in which case the application is Linux specific so (user-) name
- * space pollution is not a major issue.  However, for interoperability, libraries still
- * need to be careful to avoid a name clashes.
+ * This file is never included by application software unless explicitly
+ * requested (e.g., via linux/types.h) in which case the application is
+ * Linux specific so (user-) name space pollution is not a major issue.
+ * However, for interoperability, libraries still need to be careful to
+ * avoid naming clashes.
  *
  * Based on <asm-alpha/types.h>.
  *
@@ -18,7 +19,6 @@
 #ifdef __ASSEMBLY__
 # define __IA64_UL(x)		(x)
 # define __IA64_UL_CONST(x)	x
-
 
 #else
 # define __IA64_UL(x)		((unsigned long)(x))

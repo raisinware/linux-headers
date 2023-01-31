@@ -1,8 +1,6 @@
 #ifndef _ASM_X86_MCE_H
 #define _ASM_X86_MCE_H
 
-#ifdef __x86_64__
-
 #include <linux/types.h>
 #include <asm/ioctls.h>
 
@@ -10,21 +8,35 @@
  * Machine Check support for x86
  */
 
-#define MCG_CTL_P	 (1UL<<8)   /* MCG_CAP register available */
-#define MCG_EXT_P	 (1ULL<<9)   /* Extended registers available */
-#define MCG_CMCI_P	 (1ULL<<10)  /* CMCI supported */
+#define MCG_BANKCNT_MASK	0xff         /* Number of Banks */
+#define MCG_CTL_P		(1ULL<<8)    /* MCG_CAP register available */
+#define MCG_EXT_P		(1ULL<<9)    /* Extended registers available */
+#define MCG_CMCI_P		(1ULL<<10)   /* CMCI supported */
+#define MCG_EXT_CNT_MASK	0xff0000     /* Number of Extended registers */
+#define MCG_EXT_CNT_SHIFT	16
+#define MCG_EXT_CNT(c)		(((c) & MCG_EXT_CNT_MASK) >> MCG_EXT_CNT_SHIFT)
+#define MCG_SER_P	 	(1ULL<<24)   /* MCA recovery/new status bits */
 
-#define MCG_STATUS_RIPV  (1UL<<0)   /* restart ip valid */
-#define MCG_STATUS_EIPV  (1UL<<1)   /* ip points to correct instruction */
-#define MCG_STATUS_MCIP  (1UL<<2)   /* machine check in progress */
+#define MCG_STATUS_RIPV  (1ULL<<0)   /* restart ip valid */
+#define MCG_STATUS_EIPV  (1ULL<<1)   /* ip points to correct instruction */
+#define MCG_STATUS_MCIP  (1ULL<<2)   /* machine check in progress */
 
-#define MCI_STATUS_VAL   (1UL<<63)  /* valid error */
-#define MCI_STATUS_OVER  (1UL<<62)  /* previous errors lost */
-#define MCI_STATUS_UC    (1UL<<61)  /* uncorrected error */
-#define MCI_STATUS_EN    (1UL<<60)  /* error enabled */
-#define MCI_STATUS_MISCV (1UL<<59)  /* misc error reg. valid */
-#define MCI_STATUS_ADDRV (1UL<<58)  /* addr reg. valid */
-#define MCI_STATUS_PCC   (1UL<<57)  /* processor context corrupt */
+#define MCI_STATUS_VAL   (1ULL<<63)  /* valid error */
+#define MCI_STATUS_OVER  (1ULL<<62)  /* previous errors lost */
+#define MCI_STATUS_UC    (1ULL<<61)  /* uncorrected error */
+#define MCI_STATUS_EN    (1ULL<<60)  /* error enabled */
+#define MCI_STATUS_MISCV (1ULL<<59)  /* misc error reg. valid */
+#define MCI_STATUS_ADDRV (1ULL<<58)  /* addr reg. valid */
+#define MCI_STATUS_PCC   (1ULL<<57)  /* processor context corrupt */
+#define MCI_STATUS_S	 (1ULL<<56)  /* Signaled machine check */
+#define MCI_STATUS_AR	 (1ULL<<55)  /* Action required */
+
+/* MISC register defines */
+#define MCM_ADDR_SEGOFF  0	/* segment offset */
+#define MCM_ADDR_LINEAR  1	/* linear address */
+#define MCM_ADDR_PHYS	 2	/* physical address */
+#define MCM_ADDR_MEM	 3	/* memory address */
+#define MCM_ADDR_GENERIC 7	/* generic */
 
 /* Fields are zero when not available */
 struct mce {
@@ -34,13 +46,19 @@ struct mce {
 	__u64 mcgstatus;
 	__u64 ip;
 	__u64 tsc;	/* cpu time stamp counter */
-	__u64 res1;	/* for future extension */
-	__u64 res2;	/* dito. */
+	__u64 time;	/* wall time_t when error was detected */
+	__u8  cpuvendor;	/* cpu vendor as encoded in system.h */
+	__u8  pad1;
+	__u16 pad2;
+	__u32 cpuid;	/* CPUID 1 EAX */
 	__u8  cs;		/* code segment */
 	__u8  bank;	/* machine check bank */
-	__u8  cpu;	/* cpu that raised the error */
+	__u8  cpu;	/* cpu number; obsolete; use extcpu now */
 	__u8  finished;   /* entry is valid */
-	__u32 pad;
+	__u32 extcpu;	/* linux cpu number that detected the error */
+	__u32 socketid;	/* CPU socket ID */
+	__u32 apicid;	/* CPU initial apic ID */
+	__u64 mcgcap;	/* MCGCAP MSR: machine check capabilities of CPU */
 };
 
 /*
@@ -57,7 +75,7 @@ struct mce_log {
 	unsigned len;	    /* = MCE_LOG_LEN */
 	unsigned next;
 	unsigned flags;
-	unsigned pad0;
+	unsigned recordlen;	/* length of struct mce */
 	struct mce entry[MCE_LOG_LEN];
 };
 
@@ -81,7 +99,5 @@ struct mce_log {
 #define K8_MCE_THRESHOLD_BANK_4    (MCE_THRESHOLD_BASE + 4 * 9)
 #define K8_MCE_THRESHOLD_BANK_5    (MCE_THRESHOLD_BASE + 5 * 9)
 #define K8_MCE_THRESHOLD_DRAM_ECC  (MCE_THRESHOLD_BANK_4 + 0)
-
-#endif /* __x86_64__ */
 
 #endif /* _ASM_X86_MCE_H */

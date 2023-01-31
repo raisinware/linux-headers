@@ -1033,7 +1033,6 @@ typedef struct mixer_vol_table {
  */
 #define LOCL_STARTAUDIO		1
 
-#if !defined(__KERNEL__) || defined(USE_SEQ_MACROS)
 /*
  *	Some convenience macros to simplify programming of the
  *	/dev/sequencer interface
@@ -1274,5 +1273,4 @@ void seqbuf_dump(void);	/* This function must be provided by programs */
 #define SEQ_WRPATCH2(patchx, len) \
 		(SEQ_DUMPBUF(), write(seqfd, (char*)(patchx), len))
 
-#endif
 #endif

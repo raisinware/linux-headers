@@ -156,7 +156,7 @@ struct sigstack {
 #define SIGSTKSZ	16384
 
 
-#include <asm-generic/signal.h>
+#include <asm-generic/signal-defs.h>
 
 struct __new_sigaction {
 	__sighandler_t		sa_handler;

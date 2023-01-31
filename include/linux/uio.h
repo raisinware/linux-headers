@@ -19,7 +19,6 @@ struct iovec
 	__kernel_size_t iov_len; /* Must be size_t (1003.1g) */
 };
 
-
 /*
  *	UIO_MAXIOV shall be at least 16 1003.1g (5.4.1.1)
  */
@@ -27,23 +26,5 @@ struct iovec
 #define UIO_FASTIOV	8
 #define UIO_MAXIOV	1024
 
-/*
- * Total number of bytes covered by an iovec.
- *
- * NOTE that it is not safe to use this function until all the iovec's
- * segment lengths have been validated.  Because the individual lengths can
- * overflow a size_t when added together.
- */
-static __inline__ size_t iov_length(const struct iovec *iov, unsigned long nr_segs)
-{
-	unsigned long seg;
-	size_t ret = 0;
-
-	for (seg = 0; seg < nr_segs; seg++)
-		ret += iov[seg].iov_len;
-	return ret;
-}
-
-unsigned long iov_shorten(struct iovec *iov, unsigned long nr_segs, size_t to);
 
 #endif

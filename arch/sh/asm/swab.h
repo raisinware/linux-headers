@@ -7,22 +7,21 @@
  */
 
 #include <linux/types.h>
-
-#define __SWAB_64_THRU_32__
+#include <asm-generic/swab.h>
 
 static __inline__ __u32 __arch_swab32(__u32 x)
 {
 	__asm__(
 #ifdef __SH5__
-		"byterev	%0, %0\n\t"
+		"byterev	%1, %0\n\t"
 		"shari		%0, 32, %0"
 #else
-		"swap.b		%0, %0\n\t"
+		"swap.b		%1, %0\n\t"
 		"swap.w		%0, %0\n\t"
 		"swap.b		%0, %0"
 #endif
 		: "=r" (x)
-		: "0" (x));
+		: "r" (x));
 
 	return x;
 }
@@ -32,13 +31,13 @@ static __inline__ __u16 __arch_swab16(__u16 x)
 {
 	__asm__(
 #ifdef __SH5__
-		"byterev	%0, %0\n\t"
+		"byterev	%1, %0\n\t"
 		"shari		%0, 32, %0"
 #else
-		"swap.b		%0, %0"
+		"swap.b		%1, %0"
 #endif
 		: "=r" (x)
-		:  "0" (x));
+		:  "r" (x));
 
 	return x;
 }
