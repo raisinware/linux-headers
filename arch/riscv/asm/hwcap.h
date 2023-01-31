@@ -5,8 +5,8 @@
  * Copyright (C) 2012 ARM Ltd.
  * Copyright (C) 2017 SiFive
  */
-#ifndef __UAPI_ASM_HWCAP_H
-#define __UAPI_ASM_HWCAP_H
+#ifndef _ASM_RISCV_HWCAP_H
+#define _ASM_RISCV_HWCAP_H
 
 /*
  * Linux saves the floating-point registers according to the ISA Linux is
@@ -22,4 +22,4 @@
 #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
 #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
 
-#endif
+#endif /* _ASM_RISCV_HWCAP_H */
