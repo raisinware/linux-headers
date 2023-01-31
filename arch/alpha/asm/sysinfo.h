@@ -27,6 +27,4 @@
 #define UAC_NOFIX			2
 #define UAC_SIGBUS			4
 
-
-
 #endif /* __ASM_ALPHA_SYSINFO_H */

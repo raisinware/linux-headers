@@ -98,4 +98,7 @@ struct rtc_pll_info {
 #define RTC_UF 0x10	/* Update interrupt for 1Hz RTC */
 
 
+#define RTC_MAX_FREQ	8192
+
+
 #endif /* _LINUX_RTC_H_ */

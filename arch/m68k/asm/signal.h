@@ -111,5 +111,4 @@ typedef struct sigaltstack {
 	size_t ss_size;
 } stack_t;
 
-
 #endif /* _M68K_SIGNAL_H */
