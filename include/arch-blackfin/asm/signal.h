@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 #ifndef _BLACKFIN_SIGNAL_H
 #define _BLACKFIN_SIGNAL_H
 

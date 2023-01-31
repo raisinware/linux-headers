@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 #ifndef _ASM_PARISC_UNISTD_H_
 #define _ASM_PARISC_UNISTD_H_
 

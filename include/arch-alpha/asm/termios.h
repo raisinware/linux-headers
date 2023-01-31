@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 #ifndef _ALPHA_TERMIOS_H
 #define _ALPHA_TERMIOS_H
 

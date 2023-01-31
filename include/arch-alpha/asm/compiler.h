@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 #ifndef __ALPHA_COMPILER_H
 #define __ALPHA_COMPILER_H
 

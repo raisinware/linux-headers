@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 #ifndef __BFIN_ASM_BYTEORDER_H
 #define __BFIN_ASM_BYTEORDER_H
 

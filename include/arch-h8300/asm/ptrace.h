@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 #ifndef _H8300_PTRACE_H
 #define _H8300_PTRACE_H
 
