@@ -225,8 +225,14 @@ struct perf_event_attr {
 	};
 
 	__u32			bp_type;
-	__u64			bp_addr;
-	__u64			bp_len;
+	union {
+		__u64		bp_addr;
+		__u64		config1; /* extension of config */
+	};
+	union {
+		__u64		bp_len;
+		__u64		config2; /* extension of config1 */
+	};
 };
 
 /*
@@ -464,5 +470,6 @@ enum perf_callchain_context {
 
 #define PERF_FLAG_FD_NO_GROUP	(1U << 0)
 #define PERF_FLAG_FD_OUTPUT	(1U << 1)
+#define PERF_FLAG_PID_CGROUP	(1U << 2) /* pid=cgroup id, per-cpu mode only */
 
 #endif /* _LINUX_PERF_EVENT_H */

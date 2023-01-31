@@ -315,5 +315,9 @@
 #define __NR_fanotify_init		1323
 #define __NR_fanotify_mark		1324
 #define __NR_prlimit64			1325
+#define __NR_name_to_handle_at		1326
+#define __NR_open_by_handle_at  	1327
+#define __NR_clock_adjtime		1328
+#define __NR_syncfs			1329
 
 #endif /* _ASM_IA64_UNISTD_H */

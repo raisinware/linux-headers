@@ -102,6 +102,9 @@ struct inodes_stat_t {
 /* File is huge (eg. /dev/kmem): treat loff_t as unsigned */
 #define FMODE_UNSIGNED_OFFSET	((fmode_t)0x2000)
 
+/* File is opened with O_PATH; almost nothing can be done with it */
+#define FMODE_PATH		((fmode_t)0x4000)
+
 /* File was opened by fanotify and shouldn't generate fanotify events */
 #define FMODE_NONOTIFY		((fmode_t)0x1000000)
 
@@ -135,16 +138,10 @@ struct inodes_stat_t {
  *			block layer could (in theory) choose to ignore this
  *			request if it runs into resource problems.
  * WRITE		A normal async write. Device will be plugged.
- * WRITE_SYNC_PLUG	Synchronous write. Identical to WRITE, but passes down
+ * WRITE_SYNC		Synchronous write. Identical to WRITE, but passes down
  *			the hint that someone will be waiting on this IO
- *			shortly. The device must still be unplugged explicitly,
- *			WRITE_SYNC_PLUG does not do this as we could be
- *			submitting more writes before we actually wait on any
- *			of them.
- * WRITE_SYNC		Like WRITE_SYNC_PLUG, but also unplugs the device
- *			immediately after submission. The write equivalent
- *			of READ_SYNC.
- * WRITE_ODIRECT_PLUG	Special case write for O_DIRECT only.
+ *			shortly. The write equivalent of READ_SYNC.
+ * WRITE_ODIRECT	Special case write for O_DIRECT only.
  * WRITE_FLUSH		Like WRITE_SYNC but with preceding cache flush.
  * WRITE_FUA		Like WRITE_SYNC but data is guaranteed to be on
  *			non-volatile media on completion.
@@ -160,18 +157,14 @@ struct inodes_stat_t {
 #define WRITE			RW_MASK
 #define READA			RWA_MASK
 
-#define READ_SYNC		(READ | REQ_SYNC | REQ_UNPLUG)
+#define READ_SYNC		(READ | REQ_SYNC)
 #define READ_META		(READ | REQ_META)
-#define WRITE_SYNC_PLUG		(WRITE | REQ_SYNC | REQ_NOIDLE)
-#define WRITE_SYNC		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_UNPLUG)
-#define WRITE_ODIRECT_PLUG	(WRITE | REQ_SYNC)
+#define WRITE_SYNC		(WRITE | REQ_SYNC | REQ_NOIDLE)
+#define WRITE_ODIRECT		(WRITE | REQ_SYNC)
 #define WRITE_META		(WRITE | REQ_META)
-#define WRITE_FLUSH		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_UNPLUG | \
-				 REQ_FLUSH)
-#define WRITE_FUA		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_UNPLUG | \
-				 REQ_FUA)
-#define WRITE_FLUSH_FUA		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_UNPLUG | \
-				 REQ_FLUSH | REQ_FUA)
+#define WRITE_FLUSH		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_FLUSH)
+#define WRITE_FUA		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_FUA)
+#define WRITE_FLUSH_FUA		(WRITE | REQ_SYNC | REQ_NOIDLE | REQ_FLUSH | REQ_FUA)
 
 #define SEL_IN		1
 #define SEL_OUT		2
@@ -364,6 +357,7 @@ struct inodes_stat_t {
 #define FS_TOPDIR_FL			0x00020000 /* Top of directory hierarchies*/
 #define FS_EXTENT_FL			0x00080000 /* Extents */
 #define FS_DIRECTIO_FL			0x00100000 /* Use direct i/o */
+#define FS_NOCOW_FL			0x00800000 /* Do not cow file */
 #define FS_RESERVED_FL			0x80000000 /* reserved for ext2 lib */
 
 #define FS_FL_USER_VISIBLE		0x0003DFFF /* User visible flags */
