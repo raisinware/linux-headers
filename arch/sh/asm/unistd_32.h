@@ -375,7 +375,9 @@
 #define __NR_syncfs		362
 #define __NR_sendmmsg		363
 #define __NR_setns		364
+#define __NR_process_vm_readv	365
+#define __NR_process_vm_writev	366
 
-#define NR_syscalls 365
+#define NR_syscalls 367
 
 #endif /* __ASM_SH_UNISTD_H */

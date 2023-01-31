@@ -350,5 +350,7 @@
 #define __NR_clock_adjtime	342
 #define __NR_syncfs		343
 #define __NR_setns		344
+#define __NR_process_vm_readv	345
+#define __NR_process_vm_writev	346
 
 #endif /* _ASM_M68K_UNISTD_H_ */

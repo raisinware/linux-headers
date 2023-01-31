@@ -373,6 +373,8 @@
 #define __NR_syncfs		348
 #define __NR_sendmmsg		349
 #define __NR_setns		350
+#define __NR_process_vm_readv	351
+#define __NR_process_vm_writev	352
 
 
 #endif /* _ASM_POWERPC_UNISTD_H_ */

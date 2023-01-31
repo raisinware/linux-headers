@@ -352,5 +352,7 @@
 #define __NR_syncfs             344
 #define __NR_sendmmsg		345
 #define __NR_setns		346
+#define __NR_process_vm_readv	347
+#define __NR_process_vm_writev	348
 
 #endif /* _ASM_X86_UNISTD_32_H */

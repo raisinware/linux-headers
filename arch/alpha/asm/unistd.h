@@ -457,5 +457,7 @@
 #define __NR_clock_adjtime		499
 #define __NR_syncfs			500
 #define __NR_setns			501
+#define __NR_accept4			502
+#define __NR_sendmmsg			503
 
 #endif /* _ALPHA_UNISTD_H */
