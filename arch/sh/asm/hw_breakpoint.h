@@ -1,4 +1,4 @@
-#ifndef __ASM_SH_HW_BREAKPOINT_H
-#define __ASM_SH_HW_BREAKPOINT_H
-
-#endif /* __ASM_SH_HW_BREAKPOINT_H */
+/*
+ * There isn't anything here anymore, but the file must not be empty or patch
+ * will delete it.
+ */

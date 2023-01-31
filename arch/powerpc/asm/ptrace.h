@@ -1,6 +1,3 @@
-#ifndef _ASM_POWERPC_PTRACE_H
-#define _ASM_POWERPC_PTRACE_H
-
 /*
  * Copyright (C) 2001 PPC64 Team, IBM Corp
  *
@@ -23,6 +20,9 @@
  * as published by the Free Software Foundation; either version
  * 2 of the License, or (at your option) any later version.
  */
+#ifndef _ASM_POWERPC_PTRACE_H
+#define _ASM_POWERPC_PTRACE_H
+
 
 #include <linux/types.h>
 

@@ -74,4 +74,4 @@
 #define PTRACE_SETXTREGS	19
 
 
-#endif	/* _XTENSA_PTRACE_H */
+#endif /* _XTENSA_PTRACE_H */

@@ -29,7 +29,7 @@
 #ifndef _EXYNOS_DRM_H_
 #define _EXYNOS_DRM_H_
 
-#include "drm.h"
+#include <drm/drm.h>
 
 /**
  * User-desired buffer creation information structure.
@@ -200,4 +200,4 @@ struct drm_exynos_g2d_event {
 	__u32			reserved;
 };
 
-#endif	/* _EXYNOS_DRM_H_ */
+#endif /* _EXYNOS_DRM_H_ */

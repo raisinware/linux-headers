@@ -4,4 +4,4 @@
 #define COMMAND_LINE_SIZE	4096
 
 
-#endif /* __SETUP_H */
+#endif /* _MIPS_SETUP_H */

@@ -1,12 +1,12 @@
-#ifndef _ASM_IA64_UNISTD_H
-#define _ASM_IA64_UNISTD_H
-
 /*
  * IA-64 Linux syscall numbers and __inline__-functions.
  *
  * Copyright (C) 1998-2005 Hewlett-Packard Co
  *	David Mosberger-Tang <davidm@hpl.hp.com>
  */
+#ifndef _ASM_IA64_UNISTD_H
+#define _ASM_IA64_UNISTD_H
+
 
 #include <asm/break.h>
 

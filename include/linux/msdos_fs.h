@@ -164,4 +164,4 @@ struct msdos_dir_slot {
 	__u8    name11_12[4];	/* last 2 characters in name */
 };
 
-#endif /* !_LINUX_MSDOS_FS_H */
+#endif /* _LINUX_MSDOS_FS_H */

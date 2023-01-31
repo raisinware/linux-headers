@@ -70,4 +70,4 @@ struct xt_hashlimit_mtinfo1 {
 	struct xt_hashlimit_htable *hinfo __attribute__((aligned(8)));
 };
 
-#endif /*_XT_HASHLIMIT_H*/
+#endif /* _XT_HASHLIMIT_H */

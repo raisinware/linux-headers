@@ -1,12 +1,12 @@
-#ifndef _LINUX_MEMPOLICY_H
-#define _LINUX_MEMPOLICY_H 1
-
-#include <linux/errno.h>
-
 /*
  * NUMA memory policies for Linux.
  * Copyright 2003,2004 Andi Kleen SuSE Labs
  */
+#ifndef _LINUX_MEMPOLICY_H
+#define _LINUX_MEMPOLICY_H
+
+#include <linux/errno.h>
+
 
 /*
  * Both the MPOL_* mempolicy mode and the MPOL_F_* optional mode flags are
@@ -61,4 +61,4 @@ enum mpol_rebind_step {
 #define MPOL_F_REBINDING (1 << 2)	/* identify policies in rebinding */
 
 
-#endif
+#endif /* _LINUX_MEMPOLICY_H */

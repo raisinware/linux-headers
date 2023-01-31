@@ -5,6 +5,7 @@
 
 /* has the defines to get at the registers. */
 
+
 #define PTRACE_TRACEME		   0
 #define PTRACE_PEEKTEXT		   1
 #define PTRACE_PEEKDATA		   2
@@ -77,4 +78,4 @@
 #include <asm/ptrace.h>
 
 
-#endif
+#endif /* _LINUX_PTRACE_H */

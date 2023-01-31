@@ -66,4 +66,4 @@ typedef unsigned long elf_fpregset_t;
 #define ELF_CLASS	ELFCLASS32
 #define ELF_DATA	ELFDATA2MSB
 
-#endif
+#endif /* __ASM_OPENRISC_ELF_H */

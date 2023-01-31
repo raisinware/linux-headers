@@ -1,6 +1,3 @@
-#if !defined(_ASM_GENERIC_UNISTD_H) || defined(__SYSCALL)
-#define _ASM_GENERIC_UNISTD_H
-
 #include <asm/bitsperlong.h>
 
 /*
@@ -903,5 +900,3 @@ __SYSCALL(__NR_fork, sys_ni_syscall)
 #define __NR_lstat64 __NR3264_lstat
 #endif
 #endif
-
-#endif /* _ASM_GENERIC_UNISTD_H */

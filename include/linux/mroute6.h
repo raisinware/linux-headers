@@ -132,4 +132,4 @@ struct mrt6msg {
 	struct in6_addr	im6_src, im6_dst;
 };
 
-#endif
+#endif /* __LINUX_MROUTE6_H */

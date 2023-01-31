@@ -46,4 +46,4 @@ struct termio {
 /* ioctl (fd, TIOCSERGETLSR, &result) where result may be as below */
 
 
-#endif	/* _S390_TERMIOS_H */
+#endif /* _S390_TERMIOS_H */

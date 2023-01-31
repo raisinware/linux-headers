@@ -98,4 +98,4 @@ struct __fdb_entry {
 };
 
 
-#endif
+#endif /* _LINUX_IF_BRIDGE_H */

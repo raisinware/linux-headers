@@ -110,6 +110,7 @@ enum {
 #define TCP_REPAIR_QUEUE	20
 #define TCP_QUEUE_SEQ		21
 #define TCP_REPAIR_OPTIONS	22
+#define TCP_FASTOPEN		23	/* Enable FastOpen on listeners */
 
 struct tcp_repair_opt {
 	__u32	opt_code;
@@ -129,6 +130,7 @@ enum {
 #define TCPI_OPT_WSCALE		4
 #define TCPI_OPT_ECN		8 /* ECN was negociated at TCP session init */
 #define TCPI_OPT_ECN_SEEN	16 /* we received at least one packet with ECT */
+#define TCPI_OPT_SYN_DATA	32 /* SYN-ACK acked data in SYN sent or rcvd */
 
 enum tcp_ca_state {
 	TCP_CA_Open = 0,
@@ -221,4 +223,4 @@ struct tcp_cookie_transactions {
 };
 
 
-#endif	/* _LINUX_TCP_H */
+#endif /* _LINUX_TCP_H */

@@ -44,4 +44,4 @@
 #define PSR_IMPL_LEON		0xf
 
 
-#endif /* !(__LINUX_SPARC_PSR_H) */
+#endif /* __LINUX_SPARC_PSR_H */

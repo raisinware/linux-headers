@@ -607,4 +607,4 @@ struct tcamsg {
 
 
 
-#endif	/* __LINUX_RTNETLINK_H */
+#endif /* __LINUX_RTNETLINK_H */

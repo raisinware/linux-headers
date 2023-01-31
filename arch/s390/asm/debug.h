@@ -31,4 +31,4 @@ struct __debug_entry{
 
 #define __DEBUG_FEATURE_VERSION      2  /* version of debug feature */
 
-#endif				/* DEBUG_H */
+#endif /* DEBUG_H */

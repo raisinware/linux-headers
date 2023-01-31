@@ -87,5 +87,4 @@ struct pt_regs {
 
 #endif /* __ASSEMBLY__ */
 
-#endif
-
+#endif /* __UNICORE_PTRACE_H__ */

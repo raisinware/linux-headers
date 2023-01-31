@@ -54,4 +54,4 @@ struct watchdog_info {
 #define	WDIOS_TEMPPANIC		0x0004	/* Kernel panic on temperature trip */
 
 
-#endif  /* ifndef _LINUX_WATCHDOG_H */
+#endif /* _LINUX_WATCHDOG_H */

@@ -143,4 +143,4 @@ typedef struct sigaltstack {
 } stack_t;
 
 #endif	/* __ASSEMBLY__ */
-#endif	/* _XTENSA_SIGNAL_H */
+#endif /* _XTENSA_SIGNAL_H */

@@ -111,4 +111,4 @@ struct acct_v3
 #define AHZ		(HZ)
 
 
-#endif	/* _LINUX_ACCT_H */
+#endif /* _LINUX_ACCT_H */

@@ -53,4 +53,4 @@ struct nfgenmsg {
 #define NFNL_SUBSYS_CTHELPER		9
 #define NFNL_SUBSYS_COUNT		10
 
-#endif	/* _NFNETLINK_H */
+#endif /* _NFNETLINK_H */

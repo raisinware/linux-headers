@@ -68,4 +68,4 @@ struct itimerval {
  */
 #define TIMER_ABSTIME			0x01
 
-#endif
+#endif /* _LINUX_TIME_H */

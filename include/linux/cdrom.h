@@ -8,8 +8,8 @@
  *               1998-2002    Jens Axboe, axboe@suse.de
  */
  
-#ifndef	_LINUX_CDROM_H
-#define	_LINUX_CDROM_H
+#ifndef _LINUX_CDROM_H
+#define _LINUX_CDROM_H
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -909,4 +909,4 @@ struct mode_page_header {
 };
 
 
-#endif  /* _LINUX_CDROM_H */
+#endif /* _LINUX_CDROM_H */

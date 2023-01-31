@@ -169,7 +169,7 @@ enum nfs4_acl_whotype {
 	NFS4_ACL_WHO_EVERYONE,
 };
 
-#endif
+#endif /* _LINUX_NFS4_H */
 
 /*
  * Local variables:

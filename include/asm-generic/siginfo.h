@@ -293,4 +293,4 @@ typedef struct sigevent {
 #define sigev_notify_thread_id	 _sigev_un._tid
 
 
-#endif
+#endif /* _ASM_GENERIC_SIGINFO_H */

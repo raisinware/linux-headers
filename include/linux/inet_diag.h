@@ -1,5 +1,5 @@
 #ifndef _INET_DIAG_H_
-#define _INET_DIAG_H_ 1
+#define _INET_DIAG_H_
 
 #include <linux/types.h>
 

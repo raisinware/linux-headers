@@ -101,4 +101,4 @@ enum {
 
 
 
-#endif
+#endif /* __LINUX_IF_PPPOL2TP_H */

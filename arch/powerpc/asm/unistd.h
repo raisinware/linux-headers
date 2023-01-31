@@ -1,6 +1,3 @@
-#ifndef _ASM_POWERPC_UNISTD_H_
-#define _ASM_POWERPC_UNISTD_H_
-
 /*
  * This file contains the system call numbers.
  *
@@ -9,6 +6,9 @@
  * as published by the Free Software Foundation; either version
  * 2 of the License, or (at your option) any later version.
  */
+#ifndef _ASM_POWERPC_UNISTD_H_
+#define _ASM_POWERPC_UNISTD_H_
+
 
 #define __NR_restart_syscall	  0
 #define __NR_exit		  1

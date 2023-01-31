@@ -62,5 +62,4 @@ struct epoll_event {
 } EPOLL_PACKED;
 
 
-#endif /* #ifndef _LINUX_EVENTPOLL_H */
-
+#endif /* _LINUX_EVENTPOLL_H */

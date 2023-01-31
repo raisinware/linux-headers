@@ -48,4 +48,4 @@ static __inline__ __u32 __arch_swab32(__u32 x)
 #define __arch_swab32 __arch_swab32
 
 
-#endif
+#endif /* __ASM_ARM_SWAB_H */

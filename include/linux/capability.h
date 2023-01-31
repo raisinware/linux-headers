@@ -353,4 +353,4 @@ struct vfs_cap_data {
 #define CAP_TO_MASK(x)      (1 << ((x) & 31)) /* mask for indexed __u32 */
 
 
-#endif /* !_LINUX_CAPABILITY_H */
+#endif /* _LINUX_CAPABILITY_H */

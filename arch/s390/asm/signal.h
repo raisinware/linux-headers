@@ -128,4 +128,4 @@ typedef struct sigaltstack {
 } stack_t;
 
 
-#endif
+#endif /* _ASMS390_SIGNAL_H */

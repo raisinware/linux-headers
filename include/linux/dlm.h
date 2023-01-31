@@ -72,5 +72,4 @@ struct dlm_lksb {
 #define DLM_LSFL_NEWEXCL     	0x00000008
 
 
-#endif				/* __DLM_DOT_H__ */
-
+#endif /* __DLM_DOT_H__ */

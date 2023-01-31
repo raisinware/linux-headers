@@ -132,4 +132,4 @@ struct ethhdr {
 } __attribute__((packed));
 
 
-#endif	/* _LINUX_IF_ETHER_H */
+#endif /* _LINUX_IF_ETHER_H */

@@ -1,6 +1,3 @@
-#ifndef _INPUT_H
-#define _INPUT_H
-
 /*
  * Copyright (c) 1999-2002 Vojtech Pavlik
  *
@@ -8,11 +5,15 @@
  * under the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
  */
+#ifndef _INPUT_H
+#define _INPUT_H
+
 
 #include <sys/time.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <linux/types.h>
+
 
 /*
  * The event structure itself
@@ -1147,4 +1148,4 @@ struct ff_effect {
 #define FF_MAX		0x7f
 #define FF_CNT		(FF_MAX+1)
 
-#endif
+#endif /* _INPUT_H */

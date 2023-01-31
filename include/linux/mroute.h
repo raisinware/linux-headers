@@ -140,4 +140,4 @@ struct igmpmsg {
 #define IGMPMSG_WHOLEPKT	3		/* For PIM Register processing */
 
 
-#endif
+#endif /* __LINUX_MROUTE_H */

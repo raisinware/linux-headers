@@ -276,4 +276,4 @@ struct in6_flowlabel_req {
  * MRT6_PIM			208
  * (reserved)			209
  */
-#endif
+#endif /* _LINUX_IN6_H */

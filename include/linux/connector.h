@@ -74,4 +74,4 @@ struct cn_msg {
 	__u8 data[0];
 };
 
-#endif				/* __CONNECTOR_H */
+#endif /* __CONNECTOR_H */

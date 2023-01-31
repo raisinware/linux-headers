@@ -80,4 +80,4 @@ struct termio {
 #define kernel_termios_to_user_termios_1(u, k) \
 	copy_to_user(u, k, sizeof(struct termios))
 
-#endif	/* _ASM_TERMIOS_H */
+#endif /* _ASM_TERMIOS_H */

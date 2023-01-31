@@ -55,4 +55,4 @@ struct in6_rtmsg {
 #define RTMSG_NEWROUTE		0x21
 #define RTMSG_DELROUTE		0x22
 
-#endif
+#endif /* _LINUX_IPV6_ROUTE_H */

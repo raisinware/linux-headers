@@ -21,8 +21,5 @@
 #  include <asm-generic/int-ll64.h>
 # endif
 
-/*
- * These aren't exported outside the kernel to avoid name space clashes
- */
 
 #endif /* _ASM_TYPES_H */

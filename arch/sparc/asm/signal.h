@@ -182,4 +182,4 @@ typedef struct sigaltstack {
 
 #endif /* !(__ASSEMBLY__) */
 
-#endif /* !(__SPARC_SIGNAL_H) */
+#endif /* __SPARC_SIGNAL_H */

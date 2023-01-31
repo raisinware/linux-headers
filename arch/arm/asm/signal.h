@@ -120,4 +120,4 @@ typedef struct sigaltstack {
 } stack_t;
 
 
-#endif
+#endif /* _ASMARM_SIGNAL_H */

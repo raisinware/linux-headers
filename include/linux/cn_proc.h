@@ -118,4 +118,4 @@ struct proc_event {
 	} event_data;
 };
 
-#endif	/* CN_PROC_H */
+#endif /* CN_PROC_H */

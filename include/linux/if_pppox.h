@@ -153,4 +153,4 @@ struct pppoe_hdr {
 #define PPPOE_SES_HLEN	8
 
 
-#endif /* !(__LINUX_IF_PPPOX_H) */
+#endif /* __LINUX_IF_PPPOX_H */

@@ -128,4 +128,4 @@
 #define TIOCPKT_DOSTOP		32
 #define TIOCPKT_IOCTL		64
 
-#endif /* !(_ASM_SPARC_IOCTLS_H) */
+#endif /* _ASM_SPARC_IOCTLS_H */

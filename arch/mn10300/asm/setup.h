@@ -1,14 +1,4 @@
-/* MN10300 Setup declarations
- *
- * Copyright (C) 2007 Red Hat, Inc. All Rights Reserved.
- * Written by David Howells (dhowells@redhat.com)
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public Licence
- * as published by the Free Software Foundation; either version
- * 2 of the Licence, or (at your option) any later version.
+/*
+ * There isn't anything here anymore, but the file must not be empty or patch
+ * will delete it.
  */
-#ifndef _ASM_SETUP_H
-#define _ASM_SETUP_H
-
-#endif /* _ASM_SETUP_H */

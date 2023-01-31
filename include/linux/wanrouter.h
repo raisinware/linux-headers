@@ -44,8 +44,8 @@
 * Jan 02, 1997	Gene Kozin	Initial version (based on wanpipe.h).
 *****************************************************************************/
 
-#ifndef	_ROUTER_H
-#define	_ROUTER_H
+#ifndef _ROUTER_H
+#define _ROUTER_H
 
 #define	ROUTER_NAME	"wanrouter"	/* in case we ever change it */
 #define	ROUTER_VERSION	1		/* version number */
@@ -449,4 +449,4 @@ typedef struct wanif_conf
 	unsigned char receive_only;	/*  no transmit buffering (Y/N) */
 } wanif_conf_t;
 
-#endif	/* _ROUTER_H */
+#endif /* _ROUTER_H */

@@ -121,4 +121,4 @@ typedef struct sigaltstack {
 } stack_t;
 
 
-#endif
+#endif /* __ASM_AVR32_SIGNAL_H */
