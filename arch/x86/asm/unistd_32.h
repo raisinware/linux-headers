@@ -280,7 +280,7 @@
 #define __NR_mq_timedsend 279
 #define __NR_mq_timedreceive 280
 #define __NR_mq_notify 281
-#define __NR_mq_getsetaddr 282
+#define __NR_mq_getsetattr 282
 #define __NR_kexec_load 283
 #define __NR_waitid 284
 #define __NR_add_key 286

@@ -342,11 +342,6 @@
 #include <linux/types.h>
 
 
-#define PAGE0   ((struct zeropage *)__PAGE_OFFSET)
-
-/* DEFINITION OF THE ZERO-PAGE (PAG0) */
-/* based on work by Jason Eckhardt (jason@equator.com) */
-
 /* flags of the device_path */
 #define	PF_AUTOBOOT	0x80
 #define	PF_AUTOSEARCH	0x40
