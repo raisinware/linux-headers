@@ -17,6 +17,8 @@
 #ifndef _TEGRA_DRM_H_
 #define _TEGRA_DRM_H_
 
+#include <drm/drm.h>
+
 struct drm_tegra_gem_create {
 	__u64 size;
 	__u32 flags;
