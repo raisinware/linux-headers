@@ -11,6 +11,7 @@
 #ifndef __ASM_ARC_PTRACE_H
 #define __ASM_ARC_PTRACE_H
 
+#define PTRACE_GET_THREAD_AREA	25
 
 #ifndef __ASSEMBLY__
 /*
