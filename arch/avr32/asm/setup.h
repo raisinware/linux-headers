@@ -13,5 +13,4 @@
 
 #define COMMAND_LINE_SIZE 256
 
-
 #endif /* __ASM_AVR32_SETUP_H__ */
