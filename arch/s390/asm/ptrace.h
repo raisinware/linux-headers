@@ -311,7 +311,10 @@ typedef struct
 
 
 /*
- * Now for the program event recording (trace) definitions.
+ * Now for the user space program event recording (trace) definitions.
+ * The following structures are used only for the ptrace interface, don't
+ * touch or even look at it if you don't want to modify the user-space
+ * ptrace interface. In particular stay away from it for in-kernel PER.
  */
 typedef struct
 {
