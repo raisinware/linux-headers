@@ -6,10 +6,6 @@
 #include <linux/types.h>
 #include <linux/uio.h>
 
-#ifndef __attribute__((packed))
-#define __attribute__((packed))                        __attribute__((packed))
-#endif
-
 #define TCMU_VERSION "1.0"
 
 /*
