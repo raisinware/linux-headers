@@ -434,4 +434,4 @@
 #define __IGNORE_getcpu
 
 
-#endif				/* __ASM_BFIN_UNISTD_H */
+#endif /* __ASM_BFIN_UNISTD_H */

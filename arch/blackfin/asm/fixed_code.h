@@ -35,4 +35,4 @@
 
 #define FIXED_CODE_END		(CONFIG_PHY_RAM_BASE_ADDRESS + 0x490)
 
-#endif
+#endif /* __BFIN_ASM_FIXED_CODE_H__ */

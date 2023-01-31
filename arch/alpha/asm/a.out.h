@@ -88,4 +88,4 @@ struct exec
   ((long) N_MAGIC(x) == ZMAGIC ? 0 : \
    (sizeof(struct exec) + (x).fh.f_nscns*SCNHSZ + SCNROUND - 1) & ~(SCNROUND - 1))
 
-#endif /* __A_OUT_GNU_H__ */
+#endif /* __ALPHA_A_OUT_H__ */

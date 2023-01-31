@@ -133,4 +133,4 @@ struct sport_config {
 #define DP_MFD(x)	BFIN_DEPOSIT(MFD, x)
 #define EX_MFD(x)	BFIN_EXTRACT(MFD, x)
 
-#endif
+#endif /* __BFIN_SPORT_H__ */

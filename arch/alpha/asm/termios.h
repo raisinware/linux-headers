@@ -67,4 +67,4 @@ struct termio {
 #define _VSWTC	7
 
 
-#endif	/* _ALPHA_TERMIOS_H */
+#endif /* _ALPHA_TERMIOS_H */

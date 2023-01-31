@@ -167,4 +167,4 @@ struct pt_regs {
 
 #define PT_LAST_PSEUDO PT_FDPIC_INTERP
 
-#endif				/* _BFIN_PTRACE_H */
+#endif /* _BFIN_PTRACE_H */

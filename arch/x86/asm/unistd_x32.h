@@ -272,6 +272,7 @@
 #define __NR_setns (__X32_SYSCALL_BIT + 308)
 #define __NR_getcpu (__X32_SYSCALL_BIT + 309)
 #define __NR_kcmp (__X32_SYSCALL_BIT + 312)
+#define __NR_finit_module (__X32_SYSCALL_BIT + 313)
 #define __NR_rt_sigaction (__X32_SYSCALL_BIT + 512)
 #define __NR_rt_sigreturn (__X32_SYSCALL_BIT + 513)
 #define __NR_ioctl (__X32_SYSCALL_BIT + 514)

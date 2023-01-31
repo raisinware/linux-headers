@@ -67,4 +67,4 @@ struct switch_stack {
 };
 
 
-#endif
+#endif /* _ASMAXP_PTRACE_H */

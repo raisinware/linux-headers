@@ -82,12 +82,6 @@ typedef unsigned long sigset_t;
 #define SA_ONESHOT	SA_RESETHAND
 #define SA_NOMASK	SA_NODEFER
 
-/* 
- * sigaltstack controls
- */
-#define SS_ONSTACK	1
-#define SS_DISABLE	2
-
 #define MINSIGSTKSZ	4096
 #define SIGSTKSZ	16384
 
@@ -128,4 +122,4 @@ struct sigstack {
 };
 
 
-#endif
+#endif /* _ASMAXP_SIGNAL_H */

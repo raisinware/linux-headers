@@ -1,6 +1,3 @@
-#ifndef _ASM_M32R_PTRACE_H
-#define _ASM_M32R_PTRACE_H
-
 /*
  * linux/include/asm-m32r/ptrace.h
  *
@@ -11,6 +8,9 @@
  * M32R version:
  *   Copyright (C) 2001-2002, 2004  Hirokazu Takata <takata at linux-m32r.org>
  */
+#ifndef _ASM_M32R_PTRACE_H
+#define _ASM_M32R_PTRACE_H
+
 
 /* 0 - 13 are integer registers (general purpose registers).  */
 #define PT_R4		0

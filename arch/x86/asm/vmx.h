@@ -1,6 +1,3 @@
-#ifndef VMX_H
-#define VMX_H
-
 /*
  * vmx.h: VMX Architecture related definitions
  * Copyright (c) 2004, Intel Corporation.
@@ -24,6 +21,9 @@
  *    Yaniv Kamay <yaniv@qumranet.com>
  *
  */
+#ifndef VMX_H
+#define VMX_H
+
 
 #define VMX_EXIT_REASONS_FAILED_VMENTRY         0x80000000
 
@@ -106,4 +106,4 @@
 	{ EXIT_REASON_WBINVD,                "WBINVD" }
 
 
-#endif
+#endif /* VMX_H */

@@ -129,4 +129,4 @@
 	{ SVM_EXIT_NPF,         "npf" }
 
 
-#endif
+#endif /* __SVM_H */
