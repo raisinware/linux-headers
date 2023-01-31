@@ -21,8 +21,7 @@ NAME="linux"
 VERSION="3.0"
 #shellcheck disable=SC2086
 MVER="$(echo $VERSION | cut -d. -f1)"
-#URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
-URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.6/$NAME-$VERSION.tar.xz"
+URL="https://cdn.kernel.org/pub/$NAME/kernel/v$MVER.x/$NAME-$VERSION.tar.xz"
 
 # shellcheck disable=SC2317
 on_exit () {
